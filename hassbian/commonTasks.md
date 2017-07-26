@@ -17,14 +17,14 @@
 
 
 ## check if your config is valid
-1. switch to homeassistant user ` sudo su -s /bin/bash homeassistant`
+1. switch to homeassistant user `sudo su -s /bin/bash homeassistant`
 2. switch to pyton virtal env - `source /srv/homeassistant/bin/activate`
 3. run check script - `hass --script check_config`
 4. return to pi user `exit`
 
 
 ## Read the homeassistant logfile
-1. switch to homeassistant user ` sudo su -s /bin/bash homeassistant`
+1. switch to homeassistant user `sudo su -s /bin/bash homeassistant`
 2. go to homeassistant config folder -  `cd /home/homeassistant/.homeassistant`
 3. open the logs - `nano home-assistant.log`
 4. go back to pi user - `exit`
