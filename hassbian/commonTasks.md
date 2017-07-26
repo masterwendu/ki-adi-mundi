@@ -44,3 +44,6 @@
 5. Specify your Z-Wave controller, for example `/dev/ttyACM0` and hit initialize (don't click on the USB button!)
 6. hit `CTRL + C` in the command line to shut down the OZWCP
 7. start home assistant - `sudo systemctl start home-assistant@homeassistant.service`
+
+* [Hassbian installation on a raspberry pi 3](https://github.com/masterwendu/ki-adi-mundi/blob/master/hassbian/installation.md)
+* [README](https://github.com/masterwendu/ki-adi-mundi/blob/master/README.md)
