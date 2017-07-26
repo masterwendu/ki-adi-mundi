@@ -4,4 +4,4 @@
 3. Install Samba `sudo hassbian-config install samba`
 
 * [Hassbian common tasks](https://github.com/masterwendu/ki-adi-mundi/blob/master/hassbian/commonTasks.md)
-* [README](https://github.com/masterwendu/ki-adi-mundi/blob/master/README.md)
+* [HOME](https://github.com/masterwendu/ki-adi-mundi)
