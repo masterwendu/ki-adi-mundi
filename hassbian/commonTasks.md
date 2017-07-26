@@ -46,4 +46,4 @@
 7. start home assistant - `sudo systemctl start home-assistant@homeassistant.service`
 
 * [Hassbian installation on a raspberry pi 3](https://github.com/masterwendu/ki-adi-mundi/blob/master/hassbian/installation.md)
-* [README](https://github.com/masterwendu/ki-adi-mundi/blob/master/README.md)
+* [HOME](https://github.com/masterwendu/ki-adi-mundi)
