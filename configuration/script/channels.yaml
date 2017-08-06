@@ -1,0 +1,18 @@
+turn_tv_channel_on_orf1:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_17
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_orf1
+
+turn_tv_channel_on_fire_tv:
+  sequence:
+    - service: script.tv_clear_channels
+    - delay:
+        seconds: 2
+    - service: script.turn_tv_source_right
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_fire_tv

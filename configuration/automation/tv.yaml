@@ -1,0 +1,34 @@
+- alias: turn_tv_on
+  trigger:
+    platform: state
+    entity_id: input_boolean.tv
+    from: 'off'
+    to: 'on'
+  action:
+    - service: script.turn_tv_on
+
+- alias: turn_tv_off_hdmi1
+  trigger:
+    platform: state
+    entity_id: input_boolean.tv
+    from: 'on'
+    to: 'off'
+  conditions:
+    - condition: state
+      entity_id: input_select.tv_source
+      state: 'HDMI 1'
+  action:
+    - service: script.turn_tv_off
+
+- alias: turn_tv_off_hdmi2
+  trigger:
+    platform: state
+    entity_id: input_boolean.tv
+    from: 'on'
+    to: 'off'
+  conditions:
+    - condition: state
+      entity_id: input_select.tv_source
+      state: 'HDMI 2'
+  action:
+    - service: script.turn_tv_to_hdmi1_and_off

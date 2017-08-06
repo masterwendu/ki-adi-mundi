@@ -1,0 +1,179 @@
+turn_tv_on:
+  alias: TV on
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.fernseher
+    - delay:
+        seconds: 10
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_on_off
+          - !secret samsung_tv_on_off
+          - !secret audio_on_off
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_source
+        option: 'HDMI 1'
+
+turn_tv_off:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_on_off
+          - !secret simpli_tv_on_off
+          - !secret audio_on_off
+    - delay:
+        seconds: 10
+    - service: switch.turn_off
+      entity_id: switch.fernseher
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv
+
+turn_tv_to_hdmi1_and_off:
+  sequence:
+    - service: script.turn_tv_source_left
+    - delay:
+        seconds: 2
+    - service: script.turn_tv_off
+
+turn_tv_source_left:
+  sequence:
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_source
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_left
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_enter
+
+turn_tv_source_right:
+  sequence:
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_source
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_right
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_enter
+
+send_tv_simpli_tv_ok:
+  sequence:
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_ok
+
+# fallback buttons
+tv_audio_on_off:
+  sequence:
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret audio_on_off
+
+# turn the tv volume up
+tv_volume_up:
+  alias: Volume up
+  sequence:
+    - condition: state
+      entity_id: switch.fernseher
+      state: 'on'
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_volume_up
+tv_volume_up_2:
+  alias: Volume up
+  sequence:
+    - condition: state
+      entity_id: switch.fernseher
+      state: 'on'
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_volume_up
+          - !secret samsung_tv_volume_up
+# turn the tv volume down
+tv_volume_down:
+  alias: Volume down
+  sequence:
+    - condition: state
+      entity_id: switch.fernseher
+      state: 'on'
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_volume_down
+tv_volume_down_2:
+  alias: Volume down
+  sequence:
+    - condition: state
+      entity_id: switch.fernseher
+      state: 'on'
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret samsung_tv_volume_down
+          - !secret samsung_tv_volume_down
+
+tv_clear_channels:
+  sequence:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_fire_tv
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_orf1
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_orf2
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_orf3
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_orf_sport_plus
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_atv
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_atv2
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_servus_tv
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_puls4
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_pro7
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_sat_1
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_kabel_eins
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_sat_1_gold
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_pro_7_max
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_kabel_eins_doku
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_rtl
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_vox
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_channel_zdf

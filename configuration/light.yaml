@@ -1,0 +1,4 @@
+- platform: yeelight
+  devices:
+    10.0.0.200:
+      name: Sofastripe

@@ -1,0 +1,7 @@
+tv_source:
+  name: TV source
+  options:
+   - 'HDMI 1'
+   - 'HDMI 2'
+  initial: 'HDMI 1'
+  icon: mdi:source-pull
