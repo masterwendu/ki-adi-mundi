@@ -1,4 +1,4 @@
-# ki-adi-mundi <img src="https://github.com/masterwendu/ki-adi-mundi/blob/master/ki-adi-mundi.jpg?raw=true" height="50" alt="Ki-Adi-Mundi" />
+# ki-adi-mundi <img src="https://github.com/masterwendu/ki-adi-mundi/blob/master/ki-adi-mundi.jpg?raw=true" height="100" alt="Ki-Adi-Mundi" />
 Installation of a https://home-assistant.io/ instance, called after the Jedi Ki-Adi-Mundi because the homeassistant is the brain of the house and Ki-Adi-Mundi has 2 brains.
 
 * System [Hass.io](https://home-assistant.io/blog/2017/07/25/introducing-hassio/)
