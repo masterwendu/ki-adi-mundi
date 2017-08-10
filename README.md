@@ -1,12 +1,11 @@
-# ki-adi-mundi
+# 
+<img src="https://github.com/masterwendu/ki-adi-mundi/blob/master/ki-adi-mundi.jpg?raw=true" height="20" alt="Ki-Adi-Mundi" /> ki-adi-mundi
 Installation of a https://home-assistant.io/ instance, called after the Jedi Ki-Adi-Mundi because the homeassistant is the brain of the house and Ki-Adi-Mundi has 2 brains.
 
 * System [Hass.io](https://home-assistant.io/blog/2017/07/25/introducing-hassio/)
   * Addons:
     * [SSH-Server](https://home-assistant.io/addons/ssh/)
     * [Samba](https://home-assistant.io/addons/samba/)
-
-<img src="https://github.com/masterwendu/ki-adi-mundi/blob/master/ki-adi-mundi.jpg?raw=true" height="200" alt="Ki-Adi-Mundi" />
 
 ## Devices
 * [Z-Wave ZME_UZB1 Me USB Stick](https://www.amazon.de/gp/product/B00QJEY6OC/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1)
