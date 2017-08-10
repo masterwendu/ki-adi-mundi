@@ -6,7 +6,7 @@ Installation of a https://home-assistant.io/ instance, called after the Jedi Ki-
     * [SSH-Server](https://home-assistant.io/addons/ssh/)
     * [Samba](https://home-assistant.io/addons/samba/)
 
-![Ki-Adi-Mundi](https://github.com/masterwendu/ki-adi-mundi/blob/master/ki-adi-mundi.jpg?raw=true)
+<img src="https://github.com/masterwendu/ki-adi-mundi/blob/master/ki-adi-mundi.jpg?raw=true" height="200" alt="Ki-Adi-Mundi" />
 
 ## Devices
 * [Z-Wave ZME_UZB1 Me USB Stick](https://www.amazon.de/gp/product/B00QJEY6OC/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1)
