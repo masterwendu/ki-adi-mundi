@@ -46,6 +46,7 @@ turn_tv_to_hdmi1_and_off:
     - service: script.turn_tv_off
 
 turn_tv_source_left:
+  alias: Switch TV source left
   sequence:
     - service: broadlink.send_packet_10_0_0_96
       data:
@@ -69,6 +70,7 @@ turn_tv_source_left:
         option: 'HDMI 1'
 
 turn_tv_source_right:
+  alias: Switch TV source right
   sequence:
     - service: broadlink.send_packet_10_0_0_96
       data:
@@ -92,14 +94,40 @@ turn_tv_source_right:
         option: 'HDMI 2'
 
 send_tv_simpli_tv_ok:
+  alias: Simpli-Tv ok key
   sequence:
     - service: broadlink.send_packet_10_0_0_96
       data:
         packet:
           - !secret simpli_tv_ok
 
+send_tv_simpli_tv_info:
+  alias: Simpli-Tv info key
+  sequence:
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_ok
+
+send_tv_simpli_tv_channel_up:
+  alias: Channel up
+  sequence:
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_channel_up
+
+send_tv_simpli_tv_channel_down:
+  alias: Channel down
+  sequence:
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_channel_down
+
 # fallback buttons
 tv_audio_on_off:
+  alias: Audio on / off
   sequence:
     - service: broadlink.send_packet_10_0_0_96
       data:

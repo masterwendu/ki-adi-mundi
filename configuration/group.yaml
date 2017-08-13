@@ -3,8 +3,10 @@ view_tv:
   view: yes
   icon: mdi:television
   entities:
-    - group.group_tv_channels
+    - sensor.tv_source
     - group.group_tv
+    - group.group_tv_channels
+    - group.remote_control_keys
 
 group_tv:
   name: TV
@@ -13,7 +15,18 @@ group_tv:
     - input_boolean.tv
     - script.tv_volume_up
     - script.tv_volume_down
+
+remote_control_keys:
+  control: hidden
+  name: Remote control fallback keys
+  entities:
+    - script.send_tv_simpli_tv_channel_up
+    - script.send_tv_simpli_tv_channel_down
     - script.tv_audio_on_off
+    - script.turn_tv_source_left
+    - script.turn_tv_source_right
+    - script.send_tv_simpli_tv_ok
+    - script.send_tv_simpli_tv_info
 
 group_tv_channels:
   control: hidden

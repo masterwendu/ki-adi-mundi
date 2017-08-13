@@ -3,7 +3,11 @@ turn_tv_channel_on_fire_tv:
     - service: script.tv_clear_channels
     - service: script.turn_tv_source_right
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_fire_tv
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_orf_1:
   sequence:
@@ -16,7 +20,11 @@ turn_tv_channel_on_orf_1:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_orf_1
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_orf_2:
   sequence:
@@ -29,7 +37,11 @@ turn_tv_channel_on_orf_2:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_orf_2
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_atv:
   sequence:
@@ -42,7 +54,11 @@ turn_tv_channel_on_atv:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_atv
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_puls_4:
   sequence:
@@ -55,7 +71,11 @@ turn_tv_channel_on_puls_4:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_puls_4
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_servus_tv:
   sequence:
@@ -68,7 +88,11 @@ turn_tv_channel_on_servus_tv:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_servus_tv
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_orf_3:
   sequence:
@@ -81,7 +105,11 @@ turn_tv_channel_on_orf_3:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_orf_3
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_orf_sport_plus:
   sequence:
@@ -94,7 +122,11 @@ turn_tv_channel_on_orf_sport_plus:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_orf_sport_plus
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_atv_2:
   sequence:
@@ -107,7 +139,11 @@ turn_tv_channel_on_atv_2:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_atv_2
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_sat_1:
   sequence:
@@ -126,7 +162,11 @@ turn_tv_channel_on_sat_1:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_sat_1
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_pro_7:
   sequence:
@@ -145,7 +185,11 @@ turn_tv_channel_on_pro_7:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_pro_7
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_pro_7_max:
   sequence:
@@ -164,7 +208,11 @@ turn_tv_channel_on_pro_7_max:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_pro_7_max
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_kabel_eins_doku:
   sequence:
@@ -183,7 +231,11 @@ turn_tv_channel_on_kabel_eins_doku:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_kabel_eins_doku
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_rtl:
   sequence:
@@ -202,7 +254,11 @@ turn_tv_channel_on_rtl:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_rtl
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_vox:
   sequence:
@@ -221,7 +277,11 @@ turn_tv_channel_on_vox:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_vox
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock
 
 turn_tv_channel_on_zdf:
   sequence:
@@ -240,4 +300,8 @@ turn_tv_channel_on_zdf:
         milliseconds: 500
     - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_lock
+    - service: input_boolean.turn_on
       entity_id: input_boolean.tv_channel_zdf
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tv_lock

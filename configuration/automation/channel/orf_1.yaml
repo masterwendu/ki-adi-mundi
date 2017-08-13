@@ -23,6 +23,9 @@
     condition: and
     conditions:
       - condition: state
+        entity_id: input_boolean.tv_lock
+        state: 'off'
+      - condition: state
         entity_id: input_boolean.tv
         state: 'on'
       - condition: state
@@ -39,6 +42,9 @@
   condition:
       condition: and
       conditions:
+      - condition: state
+        entity_id: input_boolean.tv_lock
+        state: 'off'
       - condition: state
         entity_id: input_boolean.tv
         state: 'on'

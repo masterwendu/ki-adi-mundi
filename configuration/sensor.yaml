@@ -1,6 +1,6 @@
 - platform: template
   sensors:
-    solar_angle:
+    tv_source:
       value_template: '{{ states.input_select.tv_source.state }}'
       friendly_name: 'TV input source'
 

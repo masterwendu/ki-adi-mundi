@@ -42,10 +42,6 @@ tv_channel_sat_1:
   name: Sat 1
   initial: off
   icon: mdi:television
-tv_channel_kabel_eins:
-  name: Kabel eins
-  initial: off
-  icon: mdi:television
 tv_channel_pro_7_max:
   name: Pro 7 Maxx
   initial: off

@@ -2,3 +2,6 @@ tv:
   name: TV
   initial: off
   icon: mdi:power
+tv_lock:
+  name: TV button lock
+  initial: off
