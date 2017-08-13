@@ -17,6 +17,8 @@ turn_tv_on:
       data:
         entity_id: input_select.tv_source
         option: 'HDMI 1'
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv
 
 turn_tv_off:
   sequence:
@@ -31,14 +33,16 @@ turn_tv_off:
         seconds: 10
     - service: switch.turn_off
       entity_id: switch.fernseher
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.tv
 
 turn_tv_to_hdmi1_and_off:
   sequence:
     - service: script.turn_tv_source_left
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_source
+        option: 'HDMI 1'
     - delay:
-        seconds: 2
+        seconds: 4
     - service: script.turn_tv_off
 
 turn_tv_source_left:
@@ -59,6 +63,10 @@ turn_tv_source_left:
       data:
         packet:
           - !secret samsung_tv_enter
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_source
+        option: 'HDMI 1'
 
 turn_tv_source_right:
   sequence:
@@ -78,6 +86,10 @@ turn_tv_source_right:
       data:
         packet:
           - !secret samsung_tv_enter
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tv_source
+        option: 'HDMI 2'
 
 send_tv_simpli_tv_ok:
   sequence:
@@ -144,23 +156,23 @@ tv_clear_channels:
     - service: input_boolean.turn_off
       entity_id: input_boolean.tv_channel_fire_tv
     - service: input_boolean.turn_off
-      entity_id: input_boolean.tv_channel_orf1
+      entity_id: input_boolean.tv_channel_orf_1
     - service: input_boolean.turn_off
-      entity_id: input_boolean.tv_channel_orf2
+      entity_id: input_boolean.tv_channel_orf_2
     - service: input_boolean.turn_off
-      entity_id: input_boolean.tv_channel_orf3
+      entity_id: input_boolean.tv_channel_orf_3
     - service: input_boolean.turn_off
       entity_id: input_boolean.tv_channel_orf_sport_plus
     - service: input_boolean.turn_off
       entity_id: input_boolean.tv_channel_atv
     - service: input_boolean.turn_off
-      entity_id: input_boolean.tv_channel_atv2
+      entity_id: input_boolean.tv_channel_atv_2
     - service: input_boolean.turn_off
       entity_id: input_boolean.tv_channel_servus_tv
     - service: input_boolean.turn_off
-      entity_id: input_boolean.tv_channel_puls4
+      entity_id: input_boolean.tv_channel_puls_4
     - service: input_boolean.turn_off
-      entity_id: input_boolean.tv_channel_pro7
+      entity_id: input_boolean.tv_channel_pro_7
     - service: input_boolean.turn_off
       entity_id: input_boolean.tv_channel_sat_1
     - service: input_boolean.turn_off

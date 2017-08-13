@@ -2,15 +2,15 @@ tv_channel_fire_tv:
     name: Fire TV Stick
     initial: off
     icon: mdi:amazon
-tv_channel_orf1:
+tv_channel_orf_1:
   name: ORF 1
   initial: off
   icon: mdi:television
-tv_channel_orf2:
+tv_channel_orf_2:
   name: ORF 2
   initial: off
   icon: mdi:television
-tv_channel_orf3:
+tv_channel_orf_3:
   name: ORF 3
   initial: off
   icon: mdi:television
@@ -22,7 +22,7 @@ tv_channel_atv:
   name: ATV
   initial: off
   icon: mdi:television
-tv_channel_atv2:
+tv_channel_atv_2:
   name: ATV 2
   initial: off
   icon: mdi:television
@@ -30,11 +30,11 @@ tv_channel_servus_tv:
   name: Servus TV
   initial: off
   icon: mdi:television
-tv_channel_puls4:
+tv_channel_puls_4:
   name: Puls 4
   initial: off
   icon: mdi:television
-tv_channel_pro7:
+tv_channel_pro_7:
   name: Pro 7
   initial: off
   icon: mdi:television
@@ -44,10 +44,6 @@ tv_channel_sat_1:
   icon: mdi:television
 tv_channel_kabel_eins:
   name: Kabel eins
-  initial: off
-  icon: mdi:television
-tv_channel_sat_1_gold:
-  name: Sat 1 Gold
   initial: off
   icon: mdi:television
 tv_channel_pro_7_max:

@@ -1,18 +1,243 @@
-turn_tv_channel_on_orf1:
+turn_tv_channel_on_fire_tv:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: script.turn_tv_source_right
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_fire_tv
+
+turn_tv_channel_on_orf_1:
   sequence:
     - service: script.tv_clear_channels
     - service: broadlink.send_packet_10_0_0_96
       data:
         packet:
-          - !secret simpli_tv_17
+          - !secret simpli_tv_1
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
-      entity_id: input_boolean.tv_channel_orf1
+      entity_id: input_boolean.tv_channel_orf_1
 
-turn_tv_channel_on_fire_tv:
+turn_tv_channel_on_orf_2:
   sequence:
     - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_2
     - delay:
-        seconds: 2
-    - service: script.turn_tv_source_right
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
     - service: input_boolean.turn_on
-      entity_id: input_boolean.tv_channel_fire_tv
+      entity_id: input_boolean.tv_channel_orf_2
+
+turn_tv_channel_on_atv:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_3
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_atv
+
+turn_tv_channel_on_puls_4:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_4
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_puls_4
+
+turn_tv_channel_on_servus_tv:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_5
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_servus_tv
+
+turn_tv_channel_on_orf_3:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_6
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_orf_3
+
+turn_tv_channel_on_orf_sport_plus:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_7
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_orf_sport_plus
+
+turn_tv_channel_on_atv_2:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_8
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_atv_2
+
+turn_tv_channel_on_sat_1:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_1
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_0
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_sat_1
+
+turn_tv_channel_on_pro_7:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_1
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_1
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_pro_7
+
+turn_tv_channel_on_pro_7_max:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_1
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_6
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_pro_7_max
+
+turn_tv_channel_on_kabel_eins_doku:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_1
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_7
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_kabel_eins_doku
+
+turn_tv_channel_on_rtl:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_2
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_0
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_rtl
+
+turn_tv_channel_on_vox:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_2
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_1
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_vox
+
+turn_tv_channel_on_zdf:
+  sequence:
+    - service: script.tv_clear_channels
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_2
+    - delay:
+        milliseconds: 500
+    - service: broadlink.send_packet_10_0_0_96
+      data:
+        packet:
+          - !secret simpli_tv_2
+    - delay:
+        milliseconds: 500
+    - service: script.send_tv_simpli_tv_ok
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.tv_channel_zdf

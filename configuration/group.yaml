@@ -1,0 +1,37 @@
+view_tv:
+  name: TV
+  view: yes
+  icon: mdi:television
+  entities:
+    - group.group_tv_channels
+    - group.group_tv
+
+group_tv:
+  name: TV
+  control: hidden
+  entities:
+    - input_boolean.tv
+    - script.tv_volume_up
+    - script.tv_volume_down
+    - script.tv_audio_on_off
+
+group_tv_channels:
+  control: hidden
+  name: Channels
+  entities:
+    - input_boolean.tv_channel_fire_tv
+    - input_boolean.tv_channel_orf_1
+    - input_boolean.tv_channel_orf_2
+    - input_boolean.tv_channel_orf_3
+    - input_boolean.tv_channel_orf_sport_plus
+    - input_boolean.tv_channel_puls_4
+    - input_boolean.tv_channel_servus_tv
+    - input_boolean.tv_channel_atv
+    - input_boolean.tv_channel_atv_2
+    - input_boolean.tv_channel_vox
+    - input_boolean.tv_channel_pro_7
+    - input_boolean.tv_channel_pro_7_max
+    - input_boolean.tv_channel_sat_1
+    - input_boolean.tv_channel_kabel_eins_doku
+    - input_boolean.tv_channel_rtl
+    - input_boolean.tv_channel_zdf

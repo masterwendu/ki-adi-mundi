@@ -3,4 +3,4 @@ latitude: !secret latitude
 longitude: !secret longitude
 elevation: !secret elevation
 unit_system: metric
-time_zone: Europe/Vienna
+time_zone: !secret time_zone

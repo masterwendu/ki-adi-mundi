@@ -1,4 +1,4 @@
 - platform: yeelight
   devices:
-    10.0.0.200:
+    !secret yeelight_sofa_ip:
       name: Sofastripe
