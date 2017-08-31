@@ -16,6 +16,6 @@ Installation of a https://home-assistant.io/ instance, called after the Jedi Ki-
 * [Z-Wave Me Funkwandschalter, ZME_WALLC-S ](https://www.amazon.de/gp/product/B00PSR4B6Y/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
 
 ## Screenshots
-![default]("https://github.com/masterwendu/ki-adi-mundi/blob/master/screenshots/screenshot_default.png?raw=true")
-![default]("https://github.com/masterwendu/ki-adi-mundi/blob/master/screenshots/screenshot_tv.png?raw=true")
-![default]("https://github.com/masterwendu/ki-adi-mundi/blob/master/screenshots/screenshot_network.png?raw=true")
+![default]("https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_default.png")
+![default]("https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_tv.png?raw=true")
+![default]("https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_network.png?raw=true")
