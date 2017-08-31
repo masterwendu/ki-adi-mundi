@@ -11,7 +11,7 @@
     - service: switch.turn_on
       entity_id: switch.fernseher
     - delay:
-        seconds: 15
+        seconds: 25
     - service: script.turn_tv_channel_on_fire_tv
 
 - alias: swith_tv_channel_fire_tv_hdmi1

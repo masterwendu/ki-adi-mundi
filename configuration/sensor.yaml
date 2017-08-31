@@ -9,3 +9,11 @@
     - ping
     - download
     - upload
+
+- platform: dnsip
+
+- platform: zamg
+  monitored_conditions:
+    - temperature
+    - humidity
+    - precipitation

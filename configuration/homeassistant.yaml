@@ -4,3 +4,25 @@ longitude: !secret longitude
 elevation: !secret elevation
 unit_system: metric
 time_zone: !secret time_zone
+
+customize:
+    sensor.aeotec_multisensor_helligkeit_innen:
+      friendly_name: Helligkeit Wohnzimmer
+    sensor.aeotec_multisensor_luftfeutigkeit_innen:
+      friendly_name: Luftfeuchtigkeit Wohnzimmer
+    sensor.aeotec_multisensor_temperatur_innen:
+      friendly_name: Temperatur Wohnzimmer
+    sensor.myipopendnscom:
+      friendly_name: Public IP
+    sensor.speedtest_download:
+      friendly_name: Internet-speed down
+    sensor.speedtest_upload:
+      friendly_name: Internet-speed up
+    sensor.speedtest_ping:
+      friendly_name: Internet ping
+    sensor.zamg_temperature:
+      friendly_name: Temperatur Wien
+    sensor.zamg_precipitation:
+      friendly_name: Niederschlag Wien
+    sensor.zamg_humidity:
+      friendly_name: Luftfeuchtigkeit Wien

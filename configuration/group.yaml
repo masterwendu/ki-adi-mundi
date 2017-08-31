@@ -1,12 +1,54 @@
-view_tv:
+default_view:
+  view: yes
+  entities:
+    - group.group_wohnzimmer
+    - group.group_badezimmer
+    - group.group_aussen
+
+tv_view:
   name: TV
   view: yes
   icon: mdi:television
   entities:
     - sensor.tv_source
-    - group.group_tv
     - group.group_tv_channels
+    - group.group_tv
     - group.remote_control_keys
+
+network_view:
+  name: Network
+  view: yes
+  icon: mdi:access-point-network
+  entities:
+    - sensor.myipopendnscom
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+
+group_aussen:
+  name: Außen
+  control: hidden
+  entities:
+    - sensor.zamg_temperature
+    - sun.sun
+    - sensor.zamg_precipitation
+    - sensor.zamg_humidity
+
+group_wohnzimmer:
+  name: Wohnzimmer
+  control: hidden
+  entities:
+    - sensor.aeotec_multisensor_temperatur_innen
+    - sensor.aeotec_multisensor_luftfeutigkeit_innen
+    - light.sofastripe
+    - sensor.aeotec_multisensor_helligkeit_innen
+
+group_badezimmer:
+  name: Badezimmer
+  control: hidden
+  entities:
+    - switch.switch_badezimmer_licht
+    - switch.switch_badezimmer_steckdose
 
 group_tv:
   name: TV
