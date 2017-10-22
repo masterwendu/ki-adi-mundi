@@ -9,7 +9,7 @@
       state: 'off'
   action:
     - service: switch.turn_on
-      entity_id: switch.fernseher
+      entity_id: switch.unnamed_device
     - delay:
         seconds: 12
     - service: script.turn_tv_channel_on_orf_3
