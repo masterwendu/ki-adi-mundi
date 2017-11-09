@@ -1,0 +1,5 @@
+devicename:
+  name: Wendelin
+  mac: !secret smartphone_wendelin_mac
+  track: yes
+  hide_if_away: no

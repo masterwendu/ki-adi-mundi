@@ -1,7 +1,7 @@
 - alias: turn_tv_on
   trigger:
     - platform: state
-      entity_id: switch.unnamed_device
+      entity_id: switch.fernseher
       to: 'on'
   action:
     - service: script.turn_tv_on
@@ -13,11 +13,11 @@
       to: 'on'
   condition:
     - condition: state
-      entity_id: switch.unnamed_device
+      entity_id: switch.fernseher
       state: 'off'
   action:
     - service: switch.turn_on
-      entity_id: switch.unnamed_device
+      entity_id: switch.fernseher
 
 - alias: turn_tv_off_hdmi1
   trigger:
