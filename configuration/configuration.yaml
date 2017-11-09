@@ -48,3 +48,4 @@ sensor: !include sensor.yaml
 notify: !include notify.yaml
 telegram_bot: !include telegram_bot.yaml
 weather: !include weather.yaml
+device_tracker: !include device_tracker.yaml
