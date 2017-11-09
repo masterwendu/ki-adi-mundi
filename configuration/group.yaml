@@ -1,6 +1,7 @@
 default_view:
   view: yes
   entities:
+    - device_tracker.android8c5ddb946d751573
     - group.group_wohnzimmer
     - group.group_badezimmer
     - group.group_aussen
