@@ -88,7 +88,7 @@
       to: 'on'
   condition:
     condition: state
-    entity_id: sun
+    entity_id: sun.sun
     state: 'below horizon'
   action:
     service: light.turn_on
@@ -96,15 +96,15 @@
 
 - alias: turn_sofastripe_off_tv_off_when_dark
   trigger:
-    platform: switch.fernseher
-    event: state_changed
+    platform: state
     entity_id: switch.fernseher
-    new_state: 'off'
-    offset: "+00:15:00"
+    to: 'on'
   condition:
     condition: state
     entity_id: light.sofastripe
     state: 'on'
   action:
-    service: light.turn_off
-    entity_id: light.sofastripe
+    - delay:
+        minutes: 15
+    - service: light.turn_off
+      entity_id: light.sofastripe
