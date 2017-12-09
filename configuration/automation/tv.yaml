@@ -42,3 +42,69 @@
       state: 'HDMI 2'
   action:
     - service: script.turn_tv_to_hdmi1_and_off
+
+- alias: turn_sofastripe_on_tv_on_when_dark
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  condition:
+    condition: state
+    entity_id: switch.fernseher
+    state: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.sofastripe
+
+- alias: turn_sofastripe_on_tv_on_when_dark2
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:15:00"
+  condition:
+    condition: state
+    entity_id: switch.fernseher
+    state: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.sofastripe
+
+- alias: turn_sofastripe_on_tv_on_when_dark3
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    condition: state
+    entity_id: switch.fernseher
+    state: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.sofastripe
+
+- alias: turn_sofastripe_on_tv_on_when_dark4
+  trigger:
+    - platform: state
+      entity_id: switch.fernseher
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: sun
+    state: 'below horizon'
+  action:
+    service: light.turn_on
+    entity_id: light.sofastripe
+
+- alias: turn_sofastripe_off_tv_off_when_dark
+  trigger:
+    platform: switch.fernseher
+    event: state_changed
+    entity_id: switch.fernseher
+    new_state: 'off'
+    offset: "+00:15:00"
+  condition:
+    condition: state
+    entity_id: light.sofastripe
+    state: 'on'
+  action:
+    service: light.turn_off
+    entity_id: light.sofastripe
