@@ -12,7 +12,7 @@ turn_tv_channel_on_fire_tv:
 turn_tv_channel_on_orf_1:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_1
@@ -29,7 +29,7 @@ turn_tv_channel_on_orf_1:
 turn_tv_channel_on_orf_2:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_2
@@ -46,7 +46,7 @@ turn_tv_channel_on_orf_2:
 turn_tv_channel_on_atv:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_3
@@ -63,7 +63,7 @@ turn_tv_channel_on_atv:
 turn_tv_channel_on_puls_4:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_4
@@ -80,7 +80,7 @@ turn_tv_channel_on_puls_4:
 turn_tv_channel_on_servus_tv:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_5
@@ -97,7 +97,7 @@ turn_tv_channel_on_servus_tv:
 turn_tv_channel_on_orf_3:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_6
@@ -114,7 +114,7 @@ turn_tv_channel_on_orf_3:
 turn_tv_channel_on_orf_sport_plus:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_7
@@ -131,7 +131,7 @@ turn_tv_channel_on_orf_sport_plus:
 turn_tv_channel_on_atv_2:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_8
@@ -148,13 +148,13 @@ turn_tv_channel_on_atv_2:
 turn_tv_channel_on_sat_1:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_1
     - delay:
         milliseconds: 500
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_0
@@ -171,13 +171,13 @@ turn_tv_channel_on_sat_1:
 turn_tv_channel_on_pro_7:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_1
     - delay:
         milliseconds: 500
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_1
@@ -194,13 +194,13 @@ turn_tv_channel_on_pro_7:
 turn_tv_channel_on_pro_7_max:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_1
     - delay:
         milliseconds: 500
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_6
@@ -217,13 +217,13 @@ turn_tv_channel_on_pro_7_max:
 turn_tv_channel_on_kabel_eins_doku:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_1
     - delay:
         milliseconds: 500
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_7
@@ -240,13 +240,13 @@ turn_tv_channel_on_kabel_eins_doku:
 turn_tv_channel_on_rtl:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_2
     - delay:
         milliseconds: 500
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_0
@@ -263,13 +263,13 @@ turn_tv_channel_on_rtl:
 turn_tv_channel_on_vox:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_2
     - delay:
         milliseconds: 500
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_1
@@ -286,13 +286,13 @@ turn_tv_channel_on_vox:
 turn_tv_channel_on_zdf:
   sequence:
     - service: script.tv_clear_channels
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_2
     - delay:
         milliseconds: 500
-    - service: broadlink.send_packet_192_168_1_101
+    - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
           - !secret simpli_tv_2
