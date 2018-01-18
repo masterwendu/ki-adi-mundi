@@ -1,7 +1,7 @@
 - alias: turn_tv_on
   trigger:
     - platform: state
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
       to: 'on'
   action:
     - service: script.turn_tv_on
@@ -13,11 +13,11 @@
       to: 'on'
   condition:
     - condition: state
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
       state: 'off'
   action:
     - service: switch.turn_on
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
 
 - alias: turn_tv_off_hdmi1
   trigger:
@@ -50,7 +50,7 @@
     offset: "-00:30:00"
   condition:
     condition: state
-    entity_id: switch.fernseher
+    entity_id: switch.tplink_switch
     state: 'on'
   action:
     service: light.turn_on
@@ -63,7 +63,7 @@
     offset: "-00:15:00"
   condition:
     condition: state
-    entity_id: switch.fernseher
+    entity_id: switch.tplink_switch
     state: 'on'
   action:
     service: light.turn_on
@@ -75,7 +75,7 @@
     event: sunset
   condition:
     condition: state
-    entity_id: switch.fernseher
+    entity_id: switch.tplink_switch
     state: 'on'
   action:
     service: light.turn_on
@@ -84,7 +84,7 @@
 - alias: turn_sofastripe_on_tv_on_when_dark4
   trigger:
     - platform: state
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
       to: 'on'
   condition:
     condition: state
@@ -97,7 +97,7 @@
 - alias: turn_sofastripe_off_tv_off_when_dark
   trigger:
     platform: state
-    entity_id: switch.fernseher
+    entity_id: switch.tplink_switch
     to: 'on'
   condition:
     condition: state

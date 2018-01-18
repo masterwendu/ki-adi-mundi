@@ -9,7 +9,7 @@
       state: 'off'
   action:
     - service: switch.turn_on
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
     - delay:
         seconds: 12
     - service: script.turn_tv_channel_on_servus_tv

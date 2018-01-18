@@ -2,7 +2,7 @@ turn_tv_on:
   alias: TV on
   sequence:
     - service: switch.turn_on
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
     - delay:
         seconds: 10
     - service: broadlink.send_packet_192_168_1_101
@@ -32,7 +32,7 @@ turn_tv_off:
     - delay:
         seconds: 10
     - service: switch.turn_off
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
 
 turn_tv_to_hdmi1_and_off:
   sequence:
@@ -139,7 +139,7 @@ tv_volume_up:
   alias: Volume up
   sequence:
     - condition: state
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
       state: 'on'
     - service: broadlink.send_packet_192_168_1_101
       data:
@@ -149,7 +149,7 @@ tv_volume_up_2:
   alias: Volume up
   sequence:
     - condition: state
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
       state: 'on'
     - service: broadlink.send_packet_192_168_1_101
       data:
@@ -161,7 +161,7 @@ tv_volume_down:
   alias: Volume down
   sequence:
     - condition: state
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
       state: 'on'
     - service: broadlink.send_packet_192_168_1_101
       data:
@@ -171,7 +171,7 @@ tv_volume_down_2:
   alias: Volume down
   sequence:
     - condition: state
-      entity_id: switch.fernseher
+      entity_id: switch.tplink_switch
       state: 'on'
     - service: broadlink.send_packet_192_168_1_101
       data:
