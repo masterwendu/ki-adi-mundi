@@ -3,6 +3,10 @@ homeassistant: !include homeassistant.yaml
 # Enables the frontend
 frontend:
   javascript_version: latest
+  extra_html_url:
+    - /local/custom_ui/state-card-tiles.html
+
+panel_custom: !include panel_custom.yaml
 
 # Enables configuration UI
 config:

@@ -1,0 +1,103 @@
+- name: tiles
+  sidebar_title: Fernbedienung
+  sidebar_icon: mdi:remote
+  url_path: remote
+  config:
+    columns: 3
+    entities:
+      - entity: script.turn_tv_source_left
+        label: TV Source left
+        icon: mdi:chevron-double-left
+        color: blue
+      - entity: input_boolean.tv
+        label: TV on off
+        icon: mdi:power-settings
+        color: blue
+      - entity: script.turn_tv_source_right
+        label: TV Source right
+        icon: mdi:chevron-double-right
+        color: blue
+
+      - entity: script.tv_volume_up
+        label: Volume up
+        icon: mdi:volume-plus
+        color: green          
+      - entity: script.tv_audio_on_off
+        label: Audio on off
+        icon: mdi:volume-medium
+        color: green          
+      - entity: script.tv_volume_down
+        label: Volume down
+        icon: mdi:volume-minus
+        color: green    
+
+      - entity: script.send_tv_simpli_tv_channel_up
+        label: Channel up
+        icon: mdi:arrow-up-drop-circle-outline
+        color: orange          
+      - entity: script.send_tv_simpli_tv_channel_on_off
+        label: Simpli tv on off
+        icon: mdi:power
+        color: orange          
+      - entity: script.send_tv_simpli_tv_channel_down
+        label: Channel down
+        icon: mdi:arrow-down-drop-circle-outline
+        color: orange
+
+      - entity: script.send_tv_simpli_tv_info
+        label: Simpli Tv info
+        icon: mdi:information-outline
+        color: orange          
+      - entity: script.send_tv_simpli_tv_ok
+        label: Ok
+        color: orange          
+      - entity: script.tv_volume_down
+        label: Fire TV
+        color: black
+
+      - entity: input_boolean.tv_channel_orf_1
+        label: Orf 1
+        color: red
+      - entity: input_boolean.tv_channel_orf_2
+        label: Orf 2
+        color: red
+      - entity: input_boolean.tv_channel_orf_3
+        label: Orf 3
+        color: red
+      - entity: input_boolean.tv_channel_orf_sport_plus
+        label: Orf Sport+
+        color: red
+      - entity: input_boolean.tv_channel_puls_4
+        label: Puls 4
+        color: red
+      - entity: input_boolean.tv_channel_servus_tv
+        label: Servus Tv
+        color: red
+      - entity: input_boolean.tv_channel_atv
+        label: ATV
+        color: red
+      - entity: input_boolean.tv_channel_atv_2
+        label: ATV 2
+        color: red
+      - entity: input_boolean.tv_channel_vox
+        label: VOX
+        color: red
+      - entity: input_boolean.tv_channel_pro_7
+        label: Pro 7
+        color: red
+      - entity: input_boolean.tv_channel_pro_7_max
+        label: Pro 7 Max
+        color: red
+      - entity: input_boolean.tv_channel_sat_1
+        label: Sat 1
+        color: red
+      - entity: input_boolean.tv_channel_kabel_eins_doku
+        label: Kabel 1 doku
+        color: red
+      - entity: input_boolean.tv_channel_rtl
+        label: RTL
+        color: red
+      - entity: input_boolean.tv_channel_zdf
+        label: ZDF
+        color: red
+

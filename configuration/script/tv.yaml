@@ -2,7 +2,7 @@ turn_tv_on:
   alias: TV on
   sequence:
     - service: switch.turn_on
-      entity_id: switch.tplink_switch
+      entity_id: switch.fernseher
     - delay:
         seconds: 10
     - service: switch.broadlink_send_packet_192_168_1_101
@@ -32,7 +32,7 @@ turn_tv_off:
     - delay:
         seconds: 10
     - service: switch.turn_off
-      entity_id: switch.tplink_switch
+      entity_id: switch.fernseher
 
 turn_tv_to_hdmi1_and_off:
   sequence:
@@ -107,7 +107,7 @@ send_tv_simpli_tv_info:
     - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
-          - !secret simpli_tv_ok
+          - !secret simpli_tv_info
 
 send_tv_simpli_tv_channel_up:
   alias: Channel up
@@ -125,6 +125,14 @@ send_tv_simpli_tv_channel_down:
         packet:
           - !secret simpli_tv_channel_down
 
+send_tv_simpli_tv_channel_on_off:
+  alias: Simpli Tv on off
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret simpli_tv_on_off
+
 # fallback buttons
 tv_audio_on_off:
   alias: Audio on / off
@@ -139,7 +147,7 @@ tv_volume_up:
   alias: Volume up
   sequence:
     - condition: state
-      entity_id: switch.tplink_switch
+      entity_id: switch.fernseher
       state: 'on'
     - service: switch.broadlink_send_packet_192_168_1_101
       data:
@@ -149,7 +157,7 @@ tv_volume_up_2:
   alias: Volume up
   sequence:
     - condition: state
-      entity_id: switch.tplink_switch
+      entity_id: switch.fernseher
       state: 'on'
     - service: switch.broadlink_send_packet_192_168_1_101
       data:
@@ -161,7 +169,7 @@ tv_volume_down:
   alias: Volume down
   sequence:
     - condition: state
-      entity_id: switch.tplink_switch
+      entity_id: switch.fernseher
       state: 'on'
     - service: switch.broadlink_send_packet_192_168_1_101
       data:
@@ -171,7 +179,7 @@ tv_volume_down_2:
   alias: Volume down
   sequence:
     - condition: state
-      entity_id: switch.tplink_switch
+      entity_id: switch.fernseher
       state: 'on'
     - service: switch.broadlink_send_packet_192_168_1_101
       data:
