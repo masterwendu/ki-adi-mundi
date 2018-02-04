@@ -19,3 +19,4 @@ Installation of a https://home-assistant.io/ instance, called after the Jedi Ki-
 ![default](https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_default.png)
 ![tv](https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_tv.png?raw=true)
 ![network](https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_network.png?raw=true)
+![tv remote](https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_remote.png?raw=true)
