@@ -1,0 +1,34 @@
+<dom-module id='ha-panel-remote'>
+  <template>
+    <style>
+      :host {
+        background-color: white;
+        display: block;
+        height: 100%;
+        padding: 8px;
+        overflow: scroll;
+      }
+    </style>
+    <state-card-tiles
+      hass='[[hass]]'  
+      state-obj='[[computeDataTiles(panel)]]'
+    ></state-card-tiles>
+  </template>
+</dom-module>
+  
+<script>
+  Polymer({
+    is: 'ha-panel-remote',
+    properties: {
+      hass: {
+        type: Object,
+      },
+      panel: {
+        type: Object,
+      }
+    },
+    computeDataTiles: function(panel) {
+      return panel && panel.config ? { attributes: { config: panel.config } } : {};
+    },
+  });
+</script>

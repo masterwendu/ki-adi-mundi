@@ -1,4 +1,4 @@
-- name: tiles
+- name: remote
   sidebar_title: Fernbedienung
   sidebar_icon: mdi:remote
   url_path: remote
@@ -6,61 +6,62 @@
     columns: 3
     entities:
       - entity: script.turn_tv_source_left
-        label: TV Source left
+        label: " Source left"
         icon: mdi:chevron-double-left
         color: blue
       - entity: input_boolean.tv
-        label: TV on off
+        label: " OFF"
         icon: mdi:power-settings
         color: blue
       - entity: script.turn_tv_source_right
-        label: TV Source right
+        label: " Source right"
         icon: mdi:chevron-double-right
         color: blue
 
       - entity: script.tv_volume_up
-        label: Volume up
         icon: mdi:volume-plus
-        color: green          
-      - entity: script.tv_audio_on_off
-        label: Audio on off
-        icon: mdi:volume-medium
-        color: green          
-      - entity: script.tv_volume_down
-        label: Volume down
-        icon: mdi:volume-minus
-        color: green    
-
+        color: green
+      - entity: script.send_tv_simpli_tv_info
+        label: " Info"
+        icon: mdi:information-outline
+        color: orange 
       - entity: script.send_tv_simpli_tv_channel_up
-        label: Channel up
         icon: mdi:arrow-up-drop-circle-outline
-        color: orange          
-      - entity: script.send_tv_simpli_tv_channel_on_off
-        label: Simpli tv on off
-        icon: mdi:power
-        color: orange          
-      - entity: script.send_tv_simpli_tv_channel_down
-        label: Channel down
-        icon: mdi:arrow-down-drop-circle-outline
         color: orange
 
-      - entity: script.send_tv_simpli_tv_info
-        label: Simpli Tv info
-        icon: mdi:information-outline
-        color: orange          
-      - entity: script.send_tv_simpli_tv_ok
-        label: Ok
-        color: orange          
       - entity: script.tv_volume_down
+        icon: mdi:volume-minus
+        color: green    
+      - entity: script.send_tv_simpli_tv_ok
+        label: OK
+        color: orange
+      - entity: script.send_tv_simpli_tv_channel_down
+        icon: mdi:arrow-down-drop-circle-outline
+        color: orange
+                
+      - entity: script.tv_audio_on_off
+        label: " Audio"
+        icon: mdi:power
+        color: green          
+      - entity: script.send_tv_simpli_tv_channel_on_off
+        label: " Simpli Tv"
+        icon: mdi:power
+        color: orange          
+      - entity: script.tv_samsung_on_off
+        label: " Samsung"
+        icon: mdi:power
+        color: blue
+
+      - entity: input_boolean.tv_channel_fire_tv
         label: Fire TV
         color: black
-
       - entity: input_boolean.tv_channel_orf_1
         label: Orf 1
         color: red
       - entity: input_boolean.tv_channel_orf_2
         label: Orf 2
         color: red
+
       - entity: input_boolean.tv_channel_orf_3
         label: Orf 3
         color: red
@@ -70,6 +71,7 @@
       - entity: input_boolean.tv_channel_puls_4
         label: Puls 4
         color: red
+
       - entity: input_boolean.tv_channel_servus_tv
         label: Servus Tv
         color: red
@@ -79,6 +81,7 @@
       - entity: input_boolean.tv_channel_atv_2
         label: ATV 2
         color: red
+
       - entity: input_boolean.tv_channel_vox
         label: VOX
         color: red
@@ -88,6 +91,7 @@
       - entity: input_boolean.tv_channel_pro_7_max
         label: Pro 7 Max
         color: red
+
       - entity: input_boolean.tv_channel_sat_1
         label: Sat 1
         color: red
@@ -97,7 +101,85 @@
       - entity: input_boolean.tv_channel_rtl
         label: RTL
         color: red
+
       - entity: input_boolean.tv_channel_zdf
         label: ZDF
         color: red
 
+- name: bluray
+  sidebar_title: Bluray Player
+  sidebar_icon: mdi:disk-alert
+  url_path: blurayRemote
+  config:
+    columns: 3
+    entities:
+      - entity: script.bluray_on_off
+        icon: mdi:power
+        color: green
+      - entity: script.bluray_eject
+        icon: mdi:eject
+        color: black
+      - entity: input_boolean.tv
+        label: " Alles aus"
+        icon: mdi:power-settings
+        color: red
+        
+      - entity: script.bluray_top_menu
+        label: TOP MENU
+        color: black
+      - entity: script.bluray_up
+        icon: mdi:arrow-up-thick
+        color: orange
+      - entity: script.bluray_menu
+        label: MENU
+        color: black
+        
+      - entity: script.bluray_left
+        icon: mdi:arrow-left-thick
+        color: orange
+      - entity: script.bluray_ok
+        icon: mdi:image-filter-center-focus-weak
+        color: orange
+      - entity: script.bluray_right
+        icon: mdi:arrow-right-thick
+        color: orange
+
+      - entity: script.bluray_subtitle
+        label: SUBTITLE
+        color: black
+      - entity: script.bluray_down
+        icon: mdi:arrow-down-thick
+        color: orange
+      - entity: script.bluray_audio
+        label: AUDIO
+        color: black
+
+      - entity: script.bluray_fast_left
+        icon: mdi:rewind
+        color: red
+      - entity: script.bluray_play
+        icon: mdi:play
+        color: red
+      - entity: script.bluray_fast_right
+        icon: mdi:fast-forward
+        color: red
+
+      - entity: script.bluray_chapter_left
+        icon: mdi:arrow-collapse-left
+        color: red
+      - entity: script.bluray_pause
+        icon: mdi:pause
+        color: red
+      - entity: script.arrow-collapse-right
+        icon: mdi:fast-forward
+        color: red
+
+      - entity: script.bluray_stop
+        icon: mdi:stop
+        color: red
+      - entity: script.tv_volume_up
+        icon: mdi:volume-plus
+        color: green
+      - entity: script.tv_volume_down
+        icon: mdi:volume-minus
+        color: green  

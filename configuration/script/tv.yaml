@@ -141,6 +141,13 @@ tv_audio_on_off:
       data:
         packet:
           - !secret audio_on_off
+tv_samsung_on_off:
+  alias: Fernseher on / off
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret samsung_tv_on_off
 
 # turn the tv volume up
 tv_volume_up:
@@ -225,3 +232,131 @@ tv_clear_channels:
       entity_id: input_boolean.tv_channel_vox
     - service: input_boolean.turn_off
       entity_id: input_boolean.tv_channel_zdf
+
+# bluray buttons
+bluray_on_off:
+  alias: bluray_on_off
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_on_off
+bluray_eject:
+  alias: bluray_eject
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_eject
+bluray_top_menu:
+  alias: bluray_top_menu
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_top_menu
+bluray_up:
+  alias: bluray_up
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_up
+bluray_menu:
+  alias: bluray_menu
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_menu
+bluray_left:
+  alias: bluray_left
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_left
+bluray_ok:
+  alias: bluray_ok
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_ok
+bluray_right:
+  alias: bluray_right
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_right
+bluray_subtitle:
+  alias: bluray_subtitle
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_subtitle
+bluray_down:
+  alias: bluray_down
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_down
+bluray_audio:
+  alias: bluray_audio
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_audio
+bluray_fast_left:
+  alias: bluray_fast_left
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_fast_left
+bluray_play:
+  alias: bluray_play
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_play
+bluray_fast_right:
+  alias: bluray_fast_right
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_fast_right
+bluray_chapter_left:
+  alias: bluray_chapter_left
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_chapter_left
+bluray_pause:
+  alias: bluray_pause
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_pause
+bluray_chapter_right:
+  alias: bluray_chapter_right
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_chapter_right
+bluray_stop:
+  alias: bluray_stop
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret bluray_stop

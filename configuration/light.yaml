@@ -2,3 +2,5 @@
   devices:
     !secret yeelight_sofa_ip:
       name: Sofastripe
+    !secret yeelight_bett_ip:
+      name: Bettstripe

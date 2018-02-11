@@ -2,6 +2,7 @@ default_view:
   view: yes
   entities:
     - device_tracker.android8c5ddb946d751573
+    - group.group_schlafzimmer
     - group.group_wohnzimmer
     - group.group_badezimmer
     - group.group_aussen
@@ -50,6 +51,13 @@ group_badezimmer:
   entities:
     - switch.switch_badezimmer_licht
     - switch.switch_badezimmer_steckdose
+
+group_schlafzimmer:
+  name: Schlafzimmer
+  control: hidden
+  entities:
+    - script.schlafen_gehen
+    - light.bettstripe
 
 group_tv:
   name: TV
