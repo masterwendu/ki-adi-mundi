@@ -171,6 +171,18 @@ tv_volume_up_2:
         packet:
           - !secret samsung_tv_volume_up
           - !secret samsung_tv_volume_up
+tv_volume_up_3:
+  alias: Volume up
+  sequence:
+    - condition: state
+      entity_id: switch.fernseher
+      state: 'on'
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret samsung_tv_volume_up
+          - !secret samsung_tv_volume_up
+          - !secret samsung_tv_volume_up
 # turn the tv volume down
 tv_volume_down:
   alias: Volume down
@@ -191,6 +203,18 @@ tv_volume_down_2:
     - service: switch.broadlink_send_packet_192_168_1_101
       data:
         packet:
+          - !secret samsung_tv_volume_down
+          - !secret samsung_tv_volume_down
+tv_volume_down_3:
+  alias: Volume down
+  sequence:
+    - condition: state
+      entity_id: switch.fernseher
+      state: 'on'
+    - service: switch.broadlink_send_packet_192_168_1_101
+      data:
+        packet:
+          - !secret samsung_tv_volume_down
           - !secret samsung_tv_volume_down
           - !secret samsung_tv_volume_down
 
@@ -360,3 +384,41 @@ bluray_stop:
       data:
         packet:
           - !secret bluray_stop
+
+start_tv_volume_down_interval:
+  alias: start_tv_volume_down_interval
+  sequence:
+    - condition: state
+      entity_id: input_boolean.tv_volume_down_interval_running
+      state: 'on'
+    - delay:
+        milliseconds: 300
+    - service: script.run_volume_down_interval
+
+run_volume_down_interval:
+  alias: run_volume_down_interval
+  sequence:
+    - condition: state
+      entity_id: input_boolean.tv_volume_down_interval_running
+      state: 'on'
+    - service: script.tv_volume_down
+    - service: script.start_tv_volume_down_interval
+
+start_tv_volume_up_interval:
+  alias: start_tv_volume_down_interval
+  sequence:
+    - condition: state
+      entity_id: input_boolean.tv_volume_up_interval_running
+      state: 'on'
+    - delay:
+        milliseconds: 300
+    - service: script.run_volume_up_interval
+
+run_volume_up_interval:
+  alias: run_volume_down_interval
+  sequence:
+    - condition: state
+      entity_id: input_boolean.tv_volume_up_interval_running
+      state: 'on'
+    - service: script.tv_volume_up
+    - service: script.start_tv_volume_up_interval

@@ -5,3 +5,9 @@ tv:
 tv_lock:
   name: TV button lock
   initial: off
+tv_volume_down_interval_running:
+  name: TV volume up interval running
+  initial: off
+tv_volume_up_interval_running:
+  name: TV volume up interval running
+  initial: off

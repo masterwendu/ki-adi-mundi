@@ -35,6 +35,9 @@ sun:
 zwave:
   usb_path: /dev/ttyACM0
 
+logger:
+  default: debug
+
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret

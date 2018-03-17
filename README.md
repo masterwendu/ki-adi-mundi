@@ -14,6 +14,7 @@ Installation of a https://home-assistant.io/ instance, called after the Jedi Ki-
 * [Aeon Multi Sensor Gen5](https://www.amazon.de/gp/product/B00UGAJMDK/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1)
 * [Fibaro Relais Unterputzeinsatz 2 Schalter 1,5 kW, FIBEFGS-222](https://www.amazon.de/gp/product/B00WH0S8F0/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
 * [Z-Wave Me Funkwandschalter, ZME_WALLC-S ](https://www.amazon.de/gp/product/B00PSR4B6Y/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
+* [Fibaro FIBEFGKF-601 KeyFob](https://www.amazon.de/Fibaro-FIBEFGKF-601-KeyFob-SmartHome-Fernbedienung-Wei%C3%9F/dp/B01N193MHH/ref=sr_1_1?ie=UTF8&qid=1521282386&sr=8-1&keywords=fibaro+keyfob)
 
 ## Screenshots
 ![default](https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_default.png)
