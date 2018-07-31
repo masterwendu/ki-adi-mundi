@@ -4,3 +4,5 @@
       name: Sofastripe
     !secret yeelight_bett_ip:
       name: Bettstripe
+    !secret yeelight_bedside_ip:
+      name: Nachttischlicht Wendelin

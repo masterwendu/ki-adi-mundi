@@ -6,12 +6,10 @@ unit_system: metric
 time_zone: !secret time_zone
 
 customize:
-    sensor.aeotec_multisensor_helligkeit_innen:
-      friendly_name: Helligkeit Wohnzimmer
-    sensor.aeotec_multisensor_luftfeutigkeit_innen:
-      friendly_name: Luftfeuchtigkeit Wohnzimmer
-    sensor.aeotec_multisensor_temperatur_innen:
-      friendly_name: Temperatur Wohnzimmer
+    sensor.temp_humidity_bedroom_humidity:
+      friendly_name: Luftfeuchtigkeit Schlafzimmer
+    sensor.temp_humidity_bedroom_temperature:
+      friendly_name: Temperatur Schlafzimmer
     sensor.myipopendnscom:
       friendly_name: Public IP
     sensor.speedtest_download:

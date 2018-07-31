@@ -6,7 +6,7 @@
     - service: notify.CARO_WENDI_GROUP
       data:
         title: '*Guten Morgen Caro und Wendi!*'
-        message: 'Innentemperatur: *{{ states.sensor.aeotec_multisensor_temperatur_innen.state }} °C*, Luftfeuchtigkeit: *{{ states.sensor.aeotec_multisensor_luftfeutigkeit_innen.state }} %*'
+        message: 'Innentemperatur: *{{ states.sensor.temp_humidity_bedroom_temperature.state }} °C*, Luftfeuchtigkeit: *{{ states.sensor.temp_humidity_bedroom_humidity.state }} %*'
         data:
           inline_keyboard:
             - 'Danke:/danke'
@@ -21,7 +21,7 @@
   action:
     - service: notify.CARO_WENDI_GROUP
       data:
-        message: 'Innentemperatur: *{{ states.sensor.aeotec_multisensor_temperatur_innen.state }} °C*, Luftfeuchtigkeit: *{{ states.sensor.aeotec_multisensor_luftfeutigkeit_innen.state }} %*'
+        message: 'Innentemperatur: *{{ states.sensor.temp_humidity_bedroom_temperature.state }} °C*, Luftfeuchtigkeit: *{{ states.sensor.temp_humidity_bedroom_humidity.state }} %*'
         data:
           inline_keyboard:
             - /danke
@@ -36,7 +36,7 @@
   action:
     - service: notify.CARO_WENDI_GROUP
       data:
-        message: 'Innentemperatur: *{{ states.sensor.aeotec_multisensor_temperatur_innen.state }} °C*, Luftfeuchtigkeit: *{{ states.sensor.aeotec_multisensor_luftfeutigkeit_innen.state }} %*'
+        message: 'Innentemperatur: *{{ states.sensor.temp_humidity_bedroom_temperature.state }} °C*, Luftfeuchtigkeit: *{{ states.sensor.temp_humidity_bedroom_humidity.state }} %*'
         data:
           inline_keyboard:
             - /danke

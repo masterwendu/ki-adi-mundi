@@ -40,10 +40,7 @@ group_wohnzimmer:
   name: Wohnzimmer
   control: hidden
   entities:
-    - sensor.aeotec_multisensor_temperatur_innen
-    - sensor.aeotec_multisensor_luftfeutigkeit_innen
     - light.sofastripe
-    - sensor.aeotec_multisensor_helligkeit_innen
 
 group_badezimmer:
   name: Badezimmer
@@ -58,6 +55,9 @@ group_schlafzimmer:
   entities:
     - script.schlafen_gehen
     - light.bettstripe
+    - sensor.temp_humidity_bedroom_temperature
+    - sensor.temp_humidity_bedroom_humidity
+    - light.nachttischlicht_wendelin
 
 group_tv:
   name: TV
