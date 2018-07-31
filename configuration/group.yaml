@@ -27,6 +27,14 @@ network_view:
     - sensor.speedtest_upload
     - sensor.speedtest_ping
 
+audio_view:
+  name: Audio
+  view: yes
+  icon: mdi:volume-high
+  entities:
+    - switch.fernseher
+    - script.tv_audio_on_off
+
 group_aussen:
   name: Außen
   control: hidden
