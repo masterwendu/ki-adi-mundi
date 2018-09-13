@@ -49,6 +49,8 @@ group_wohnzimmer:
   control: hidden
   entities:
     - light.sofastripe
+    - sensor.temp_humidity_livingroom_temperature
+    - sensor.temp_humidity_livingroom_humidity
 
 group_badezimmer:
   name: Badezimmer

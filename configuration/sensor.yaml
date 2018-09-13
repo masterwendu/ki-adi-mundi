@@ -21,3 +21,7 @@
 - platform: mitemp_bt
   mac: !secret mi_temp_bedroom_mac
   name: temp_humidity_bedroom
+
+- platform: mitemp_bt
+  mac: !secret mi_temp_livingroom_mac
+  name: temp_humidity_bedroom
