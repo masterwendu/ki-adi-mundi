@@ -24,4 +24,8 @@
 
 - platform: mitemp_bt
   mac: !secret mi_temp_livingroom_mac
-  name: temp_humidity_bedroom
+  name: temp_humidity_livingroom
+
+- platform: miflora
+  mac: !secret mi_flora_big_livingroom_mac
+  name: flora_big_livingroom

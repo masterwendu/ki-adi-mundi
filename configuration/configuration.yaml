@@ -42,6 +42,11 @@ google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
 
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: !secret mi_gateway_key
+
 # import folders
 automation: !include_dir_merge_list automation/
 input_boolean: !include_dir_merge_named input_boolean/
