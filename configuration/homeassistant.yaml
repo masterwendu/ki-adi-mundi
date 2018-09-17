@@ -10,6 +10,10 @@ customize:
       friendly_name: Luftfeuchtigkeit Schlafzimmer
     sensor.temp_humidity_bedroom_temperature:
       friendly_name: Temperatur Schlafzimmer
+    sensor.temp_humidity_livingroom_humidity:
+      friendly_name: Luftfeuchtigkeit Wohnzimmer
+    sensor.temp_humidity_livingroom_temperature:
+      friendly_name: Temperatur Wohnzimmer
     sensor.myipopendnscom:
       friendly_name: Public IP
     sensor.speedtest_download:

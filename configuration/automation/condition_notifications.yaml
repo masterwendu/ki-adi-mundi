@@ -6,7 +6,7 @@
     - service: notify.CARO_WENDI_GROUP
       data:
         title: '*Guten Morgen Caro und Wendi!*'
-        message: 'Innentemperatur: *{{ states.sensor.temp_humidity_bedroom_temperature.state }} °C*, Luftfeuchtigkeit: *{{ states.sensor.temp_humidity_bedroom_humidity.state }} %*'
+        message: 'Temperatur (Innen / Außen): *{{ (states.sensor.temp_humidity_bedroom_temperature.state + states.sensor.temp_humidity_livingroom_temperature.state) / 2 }} / {{ states.temperatue_wien.temperature }} °C*, Luftfeuchtigkeit (Innen / Außen): *{{ (states.sensor.temp_humidity_bedroom_humidity.state + states.sensor.temp_humidity_livingroom_humidity.state) / 2 }} / {{ states.temperatue_wien.humidity }} %*, Feuchtigkeit der Pflanze: *{{ state.sensor.flora_big_livingroom_moisture.state }} %*'
         data:
           inline_keyboard:
             - 'Danke:/danke'

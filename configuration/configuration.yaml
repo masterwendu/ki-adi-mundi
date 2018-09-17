@@ -21,6 +21,7 @@ updater:
 discovery:
 
 # Enables support for tracking state changes over time.
+recorder:
 history:
 
 # View all events in a logbook
