@@ -1,5 +1,4 @@
 import appdaemon.plugins.hass.hassapi as hass
-import time
 
 class CubeTVVolumeManager(hass.Hass):
 
