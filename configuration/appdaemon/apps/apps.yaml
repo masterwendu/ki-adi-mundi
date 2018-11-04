@@ -1,8 +1,6 @@
----
 cube:
   module: cube
   class: CubeTVVolumeManager
----
 telegram:
   module: telegram
   class: TelegramNotificationManager
