@@ -1,21 +1,10 @@
 default_view:
   view: yes
   entities:
-    - device_tracker.android8c5ddb946d751573
     - group.group_schlafzimmer
     - group.group_wohnzimmer
     - group.group_badezimmer
     - group.group_aussen
-
-tv_view:
-  name: TV
-  view: yes
-  icon: mdi:television
-  entities:
-    - sensor.tv_source
-    - group.group_tv_channels
-    - group.group_tv
-    - group.remote_control_keys
 
 network_view:
   name: Network
@@ -26,14 +15,6 @@ network_view:
     - sensor.speedtest_download
     - sensor.speedtest_upload
     - sensor.speedtest_ping
-
-audio_view:
-  name: Audio
-  view: yes
-  icon: mdi:volume-high
-  entities:
-    - switch.fernseher
-    - script.tv_audio_on_off
 
 group_aussen:
   name: Außen
@@ -49,6 +30,7 @@ group_wohnzimmer:
   control: hidden
   entities:
     - light.sofastripe
+    - light.sofalicht
     - sensor.temp_humidity_livingroom_temperature
     - sensor.temp_humidity_livingroom_humidity
 
@@ -68,44 +50,3 @@ group_schlafzimmer:
     - sensor.temp_humidity_bedroom_temperature
     - sensor.temp_humidity_bedroom_humidity
     - light.nachttischlicht_wendelin
-
-group_tv:
-  name: TV
-  control: hidden
-  entities:
-    - input_boolean.tv
-    - script.tv_volume_up
-    - script.tv_volume_down
-
-remote_control_keys:
-  control: hidden
-  name: Remote control fallback keys
-  entities:
-    - script.send_tv_simpli_tv_channel_up
-    - script.send_tv_simpli_tv_channel_down
-    - script.tv_audio_on_off
-    - script.turn_tv_source_left
-    - script.turn_tv_source_right
-    - script.send_tv_simpli_tv_ok
-    - script.send_tv_simpli_tv_info
-
-group_tv_channels:
-  control: hidden
-  name: Channels
-  entities:
-    - input_boolean.tv_channel_fire_tv
-    - input_boolean.tv_channel_orf_1
-    - input_boolean.tv_channel_orf_2
-    - input_boolean.tv_channel_orf_3
-    - input_boolean.tv_channel_orf_sport_plus
-    - input_boolean.tv_channel_puls_4
-    - input_boolean.tv_channel_servus_tv
-    - input_boolean.tv_channel_atv
-    - input_boolean.tv_channel_atv_2
-    - input_boolean.tv_channel_vox
-    - input_boolean.tv_channel_pro_7
-    - input_boolean.tv_channel_pro_7_max
-    - input_boolean.tv_channel_sat_1
-    - input_boolean.tv_channel_kabel_eins_doku
-    - input_boolean.tv_channel_rtl
-    - input_boolean.tv_channel_zdf

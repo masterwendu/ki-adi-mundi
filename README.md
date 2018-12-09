@@ -25,9 +25,8 @@ Installation of a https://home-assistant.io/ instance, called after the Jedi Ki-
 * [Xiaomi Mi Smart Home Occupancy Sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-occupancy-sensor/) - not used
 * [Xiaomi Mi Smart Home Wireless Switch](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-wireless-switch/) - not used
 * 2 x [Yeelight Smart Light Strip](https://yeelight.com/en_US/product/pitaya-plus)
+* [Yeelight Smart LED Bulb  ( Tunable White )](https://www.yeelight.com/en_US/product/lemon-ct)
 
 ## Screenshots
 ![default](https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_default.png)
-![tv](https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_tv.png?raw=true)
 ![network](https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_network.png?raw=true)
-![tv remote](https://github.com/masterwendu/ki-adi-mundi/raw/master/screenshots/screenshot_remote.png?raw=true)

@@ -2,11 +2,6 @@ homeassistant: !include homeassistant.yaml
 
 # Enables the frontend
 frontend:
-  javascript_version: latest
-  extra_html_url:
-    - /local/custom_ui/state-card-tiles.html
-
-panel_custom: !include panel_custom.yaml
 
 # Enables configuration UI
 config:
@@ -39,10 +34,6 @@ zwave:
 logger:
   default: debug
 
-google:
-  client_id: !secret google_client_id
-  client_secret: !secret google_client_secret
-
 xiaomi_aqara:
   discovery_retry: 5
   gateways:
@@ -50,7 +41,6 @@ xiaomi_aqara:
 
 # import folders
 automation: !include_dir_merge_list automation/
-input_boolean: !include_dir_merge_named input_boolean/
 script: !include_dir_merge_named script/
 
 # import files
@@ -62,5 +52,4 @@ sensor: !include sensor.yaml
 notify: !include notify.yaml
 telegram_bot: !include telegram_bot.yaml
 weather: !include weather.yaml
-device_tracker: !include device_tracker.yaml
 homekit: !include homekit.yaml

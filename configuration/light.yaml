@@ -6,3 +6,5 @@
       name: Bettstripe
     !secret yeelight_bedside_ip:
       name: Nachttischlicht Wendelin
+    !secret yeelight_bulb_livingroom_ip:
+      name: Sofalicht

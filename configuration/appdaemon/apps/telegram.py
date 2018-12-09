@@ -6,8 +6,7 @@ class TelegramNotificationManager(hass.Hass):
   def initialize(self):
     time = datetime.time(7, 0, 0)
     self.run_daily(self.sendDailyNotification, time)
-    self.listen_state(self.sendDailyNotification, "binary_sensor.switch_158d0002506b00", new = "on")
-
+    
     self.listen_event(self.sendDailyNotification, "telegram_command", command = "/status")
     self.listen_event(self.sendDailyNotification, "telegram_callback", command = "/status")
 

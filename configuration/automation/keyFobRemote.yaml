@@ -1,3 +1,17 @@
+- alias: remote_all_tv_devices_off_from_HDMI_2
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.remote
+      scene_id: 7
+      scene_data: 7680
+  condition:
+    - condition: state
+      entity_id: input_select.tv_source
+      state: 'HDMI 2'
+  action:
+    - service: script.turn_tv_to_hdmi1_and_off
 - alias: remote_all_tv_devices_off
   trigger:
     platform: event
@@ -6,11 +20,12 @@
       entity_id: zwave.remote
       scene_id: 7
       scene_data: 7680
+  condition:
+    - condition: state
+      entity_id: input_select.tv_source
+      state: 'HDMI 1'
   action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.tv
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.tv
+    - service: script.turn_tv_off
 
 - alias: remote_tv_source_left
   trigger:
@@ -111,32 +126,6 @@
   action:
     - service: script.tv_volume_down
 
-- alias: remote_volume_down_long_press
-  trigger:
-    platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.remote
-      scene_id: 5
-      scene_data: 7800
-  action:
-    - service: script.tv_volume_down_3
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.tv_volume_down_interval_running
-    - service: script.start_tv_volume_down_interval
-
-- alias: remote_volume_down_long_press_up
-  trigger:
-    platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.remote
-      scene_id: 5
-      scene_data: 7740
-  action:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.tv_volume_down_interval_running
-
 - alias: remote_volume_up
   trigger:
     platform: event
@@ -147,29 +136,3 @@
       scene_data: 7680
   action:
     - service: script.tv_volume_up
-
-- alias: remote_volume_up_long_press
-  trigger:
-    platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.remote
-      scene_id: 6
-      scene_data: 7800
-  action:
-    - service: script.tv_volume_up_3
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.tv_volume_up_interval_running
-    - service: script.start_tv_volume_up_interval
-
-- alias: remote_volume_up_long_press_up
-  trigger:
-    platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.remote
-      scene_id: 6
-      scene_data: 7740
-  action:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.tv_volume_up_interval_running

@@ -18,4 +18,5 @@ filter:
     - light.gateway_light_7c49eb1b093e
     - light.nachttischlicht_wendelin
     - light.sofastripe
+    - light.sofalicht
     - sun.sun

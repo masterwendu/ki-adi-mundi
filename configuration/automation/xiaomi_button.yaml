@@ -1,0 +1,38 @@
+- alias: turn on livingroom lights
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_158d0002506b00
+      click_type: single
+  condition:
+    - condition: state
+      entity_id: light.sofalicht
+      state: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.sofalicht
+    - service: light.turn_on
+      data:
+        entity_id: light.sofastripe
+
+- alias: turn off livingroom lights
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_158d0002506b00
+      click_type: single
+  condition:
+    - condition: state
+      entity_id: light.sofalicht
+      state: 'on'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.sofalicht
+    - service: light.turn_off
+      data:
+        entity_id: light.sofastripe
+
