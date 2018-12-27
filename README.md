@@ -21,7 +21,7 @@ Installation of a https://home-assistant.io/ instance, called after the Jedi Ki-
 * [Xiaomi Mi Smart Home Cube White](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-smart-home-cube-white/)
 * [Xiaomi Mi Smart Socket Plug 2](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-smart-socket-plug-2/)
 * [Huahuacaocao Flower Care Smart Monitor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-huahuacaocao-flower-care-smart-monitor/)
-* [Xiaomi Mi Smart Home Door / Window Sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-door-window-sensors/)
+* 2 x [Xiaomi Mi Smart Home Door / Window Sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-door-window-sensors/)
 * [Xiaomi Mi Smart Home Occupancy Sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-occupancy-sensor/) - not used
 * [Xiaomi Mi Smart Home Wireless Switch](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-wireless-switch/) - not used
 * 2 x [Yeelight Smart Light Strip](https://yeelight.com/en_US/product/pitaya-plus)
