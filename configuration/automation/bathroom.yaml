@@ -41,7 +41,7 @@
   action:
     - service: notify.CARO_WENDI_GROUP
       data:
-        message: 'Das Badezimmerfenster ist bereits seit 10 Minuten geöffnet 💨. Bitte schließt es!'
+        message: 'Das Badezimmerfenster ist bereits seit 10 Minuten geöffnet. Bitte schließt es!'
 
 - alias: send reminder to close the bathroom window 2
   trigger:
@@ -54,7 +54,7 @@
   action:
     - service: notify.CARO_WENDI_GROUP
       data:
-        message: 'Das Badezimmerfenster ist bereits seit 15 Minuten geöffnet 💨. Bitte schließt es!'
+        message: 'Das Badezimmerfenster ist bereits seit 15 Minuten geöffnet. Bitte schließt es!'
 
 - alias: send reminder to close the bathroom window 3
   trigger:
@@ -67,4 +67,4 @@
   action:
     - service: notify.CARO_WENDI_GROUP
       data:
-        message: 'Jetzt ist es aber genug! Das Badezimmerfenster ist bereits seit 30 Minuten geöffnet 💨. Bitte schließt es sofort!'
+        message: 'Jetzt ist es aber genug! Das Badezimmerfenster ist bereits seit 30 Minuten geöffnet. Bitte schließt es sofort!'
