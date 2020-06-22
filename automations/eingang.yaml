@@ -1,0 +1,39 @@
+- alias: Aussenlicht ein, bei Bewegung
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_eingang
+      to: 'on'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.eingang_luminance
+      below: 100
+  action:
+    - service: switch.turn_on
+      entity_id: switch.licht_aussen_eingang
+
+- alias: Aussenlicht aus nach 2 Minuten und keine Bewegung
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_eingang
+      to: 'off'
+      for:
+        minutes: 2
+  action:
+    - service: switch.turn_off
+      entity_id: switch.licht_aussen_eingang
+
+- alias: Aussenlicht aus nach 10 Minuten und keine Bewegung
+  trigger:
+    - platform: state
+      entity_id: switch.licht_aussen_eingang
+      to: 'on'
+      for:
+        minutes: 10
+  condition:
+    - condition: state
+      entity_id: binary_sensor.motion_eingang
+      state: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.licht_aussen_eingang
+

@@ -1,0 +1,7 @@
+- platform: group
+  name: ganglicht
+  entities:
+    - light.gang_licht_4
+    - light.gang_licht_3
+    - light.gang_licht_2
+    - light.gang_licht_1

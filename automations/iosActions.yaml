@@ -1,0 +1,13 @@
+- alias: Tor öffnen vom Handy
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: open_tor
+  action:
+    - service: switch.turn_on
+      entity_id: switch.open_door_switch
+    - service: notify.mobile_app_iron_man
+      data:
+        message: 'Tor wird für 10 sekunden geöffnet'

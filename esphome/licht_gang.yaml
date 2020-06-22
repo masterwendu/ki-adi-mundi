@@ -1,0 +1,73 @@
+esphome:
+  name: licht_gang
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "Wood-LAN"
+  password: "EprJ7B6xGjNuji27"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Licht Gang Fallback Hotspot"
+    password: "XpKpnC1jMFi9"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+light:
+  - platform: monochromatic
+    name: 'Gang Licht 1'
+    id: gang_licht_1
+    output: output_red
+  - platform: monochromatic
+    name: 'Gang Licht 2'
+    id: gang_licht_2
+    output: output_green
+  - platform: monochromatic
+    name: 'Gang Licht 3'
+    id: gang_licht_3
+    output: output_blue
+  - platform: monochromatic
+    name: 'Gang Licht 4'
+    id: gang_licht_4
+    output: output_white
+      
+# binary_sensor:                         
+#   - platform: gpio                     
+#     pin:                               
+#       number: GPIO5           
+#     on_press:                          
+#       then:                            
+#         - light.toggle: gang_licht_sueden                                    
+#         - light.toggle: gang_licht_norden  
+#     internal: true                     
+#     id: gang_licht_switch
+    
+status_led:
+  pin: GPIO2
+
+output:
+  - platform: esp8266_pwm
+    pin: GPIO12
+    frequency: 1000 Hz
+    id: output_red
+  - platform: esp8266_pwm
+    pin: GPIO15
+    frequency: 1000 Hz
+    id: output_green
+  - platform: esp8266_pwm
+    pin: GPIO14
+    frequency: 1000 Hz
+    id: output_blue
+  - platform: esp8266_pwm
+    pin: GPIO4
+    frequency: 1000 Hz
+    id: output_white

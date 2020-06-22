@@ -1,0 +1,162 @@
+- alias: Wohnzimmer alles aus
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 5
+        scene_data: 0
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.dimmer_livingroom_north
+    - service: light.turn_off
+      data:
+        entity_id: light.dimmer_wohnzimmer_stimmung_sued
+    - service: light.turn_off
+      data:
+        entity_id: light.dimmer_wohnzimmer_esstisch
+    - service: light.turn_off
+      data:
+        entity_id: light.dimmer_wohnzimmer_oben
+    - service: switch.turn_off
+      data:
+        entity_id: switch.xiaomi_smart_plug
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wohnzimmer_wandleuchten_switch
+    - service: switch.turn_off
+      data:
+        entity_id: switch.sonoff_switch_1
+
+- alias: Wohnzimmer ein - damit bissi licht ist
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 1
+        scene_data: 0
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.dimmer_livingroom_north
+        brightness_pct: 60
+    - service: light.turn_on
+      data:
+        entity_id: light.dimmer_wohnzimmer_stimmung_sued
+        brightness_pct: 60
+    - service: light.turn_on
+      data:
+        entity_id: light.dimmer_wohnzimmer_oben
+        brightness_pct: 50
+
+- alias: Wohnzimmer alles ein
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 1
+        scene_data: 1
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.dimmer_livingroom_north
+        brightness_pct: 100
+    - service: light.turn_on
+      data:
+        entity_id: light.dimmer_wohnzimmer_stimmung_sued
+        brightness_pct: 100
+    - service: light.turn_on
+      data:
+        entity_id: light.dimmer_wohnzimmer_esstisch
+        brightness_pct: 100
+    - service: light.turn_on
+      data:
+        entity_id: light.dimmer_wohnzimmer_oben
+        brightness_pct: 100
+    - service: switch.turn_on
+      data:
+        entity_id: switch.xiaomi_smart_plug
+
+- alias: Wohnzimmer küche ein
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 2
+        scene_data: 0
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.licht_kueche_abwasch
+    - service: switch.turn_on
+      data:
+        entity_id: switch.licht_kueche_mitte
+    - service: switch.turn_on
+      data:
+        entity_id: switch.licht_kueche_insel
+
+- alias: Wohnzimmer küche aus
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 6
+        scene_data: 0
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_kueche_abwasch
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_kueche_mitte
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_kueche_insel
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_speis
+
+- alias: Wohnzimmer Esstisch toggle
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 7
+        scene_data: 0
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.dimmer_wohnzimmer_esstisch
+        brightness_pct: 100
+
+- alias: Wohnzimmer 3. Welt Licht toggle
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_1
+        event: 1000
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.xiaomi_smart_plug
+
+- alias: Girlande toggle
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 4
+        scene_data: 0
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.sonoff_switch_1
+

@@ -1,0 +1,45 @@
+- alias: biotonne_notification
+  trigger:
+    - platform: state
+      entity_id: calendar.biotonne
+      from: 'off'
+      to: 'on'
+  action:
+    - service: notify.mobile_app_iron_man
+      data:
+        message: '🥦 Bitte stell die Biotonne raus!'
+        data:
+          presentation_options:
+            - alert
+            - badge
+            - sound
+- alias: mistkuebel_notification
+  trigger:
+    - platform: state
+      entity_id: calendar.mistkuebel
+      from: 'off'
+      to: 'on'
+  action:
+    - service: notify.mobile_app_iron_man
+      data:
+        message: '🗑️ Bitte stell den Mistkübel raus!'
+        data:
+          presentation_options:
+            - alert
+            - badge
+            - sound
+- alias: gelber_sack_notification
+  trigger:
+    - platform: state
+      entity_id: calendar.gelber_sack
+      from: 'off'
+      to: 'on'
+  action:
+    - service: notify.mobile_app_iron_man
+      data:
+        message: '♳ Bitte häng den gelben Sack raus!'
+        data:
+          presentation_options:
+            - alert
+            - badge
+            - sound

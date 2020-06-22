@@ -1,0 +1,3 @@
+- name: ki_adi_mundi_group
+  platform: telegram
+  chat_id: !secret telegram_chat_ki_adi_mundi_group

@@ -1,0 +1,36 @@
+  wassermelder_bad_gross:
+    name: 'Wasser im großen Bad!'
+    message: 'Wasserschaden im großen Bad!'
+    done_message: 'Kein Wasserschaden mehr im großen Bad!'
+    entity_id:  binary_sensor.water_3
+    state: 'on'
+    repeat:
+      - 30
+      - 60
+      - 120
+    notifiers:
+      - ki_adi_mundi_group
+  wassermelder_bad_klein:
+    name: 'Wasser im kleinen Bad!'
+    message: 'Wasserschaden im kleinen Bad!'
+    done_message: 'Kein Wasserschaden mehr im kleinen Bad!'
+    entity_id:  binary_sensor.water_4
+    state: 'on'
+    repeat:
+      - 30
+      - 60
+      - 120
+    notifiers:
+      - ki_adi_mundi_group
+  wassermelder_kueche_links:
+    name: 'Wasser in der Küche links!'
+    message: 'Wasserschaden in der Küche links!'
+    done_message: 'Kein Wasserschaden mehr in der Küche links!'
+    entity_id:  binary_sensor.water_7
+    state: 'on'
+    repeat:
+      - 30
+      - 60
+      - 120
+    notifiers:
+      - ki_adi_mundi_group

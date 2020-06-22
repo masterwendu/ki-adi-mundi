@@ -1,0 +1,45 @@
+esphome:
+  name: aussenlampe_sued_terasse
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "Wood-LAN"
+  password: "mCk63GFiX9QM2Vtv"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Aussenlampe Sued Terasse"
+    password: "XMr0GW8Qu8Oc"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+# Device Specific Config
+output:                                
+  - platform: gpio                     
+    pin: GPIO4                         
+    id: shelly_1_relay                         
+                                       
+light:                                 
+  - platform: binary                   
+    name: "Terassen-Lampe Süd"              
+    output: shelly_1_relay                     
+    id: lightid                        
+                                       
+binary_sensor:                         
+  - platform: gpio                     
+    pin:                               
+      number: GPIO5           
+    on_press:                          
+      then:                            
+        - light.toggle: lightid        
+    internal: true                     
+    id: switchid  
