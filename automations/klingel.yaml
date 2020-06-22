@@ -1,0 +1,23 @@
+- alias: klingel_wendelin
+  trigger:
+    - platform: state
+      entity_id: switch.door_bell_switch_sensor
+      from: 'off'
+      to: 'on'
+  action:
+    - service: notify.mobile_app_mi_5s
+      data:
+        message: '🔔 Ring - Torklingel'
+        data:
+          actions:
+            - action: "open_garden_door"
+              title: "Öffnen"
+- alias: Open garden door
+  trigger:
+    platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: open_garden_door
+  action:
+    service: switch.turn_on
+    entity_id: switch.open_door_switch

@@ -1,0 +1,58 @@
+- alias: Fernseher switch toggle
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_3
+        event: 1001
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.steckdose_fernseher
+
+- alias: Fernseher chromecast pause
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_3
+        event: 1002
+  action:
+    - service: media_player.media_play_pause
+      data:
+        entity_id: media_player.wood_cast
+
+- alias: Wohnzimmer stimmung scene TV
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 3
+        scene_data: 0
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_3
+        event: 1004
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.dimmer_wohnzimmer_esstisch
+    - service: light.turn_off
+      data:
+        entity_id: light.dimmer_wohnzimmer_oben
+    - service: light.turn_on
+      data:
+        entity_id: light.dimmer_livingroom_north
+        brightness_pct: 40
+    - service: light.turn_on
+      data:
+        entity_id: light.dimmer_wohnzimmer_stimmung_sued
+        brightness_pct: 40
+    - service: switch.turn_on
+      data:
+        entity_id: switch.xiaomi_smart_plug
+    - service: switch.turn_on
+      data:
+        entity_id: switch.wohnzimmer_wandleuchten_switch

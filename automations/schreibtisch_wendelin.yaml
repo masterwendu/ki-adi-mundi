@@ -1,0 +1,41 @@
+- alias: Schreibtisch Strom aus
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.steckdose_schreibtisch_wendelin_watt
+      below: 23
+      for:
+        minutes: 2
+  action:
+    - service: switch.turn_off
+      entity_id: switch.steckdose_schreibtisch_wendelin
+
+- alias: Turn PC on
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: fernbedienung_wohnzimmer
+        event: 1002
+  condition:
+    - condition: state
+      entity_id: switch.steckdose_schreibtisch_wendelin
+      state: "off"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.steckdose_schreibtisch_wendelin
+
+- alias: Laptop aus via mqtt
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: fernbedienung_wohnzimmer
+        event: 1002
+  condition:
+    - condition: state
+      entity_id: swtich.steckdose_schreibtisch_wendelin
+      state: "on"
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: "monitor/wendelin-pc/shutdown_command"

@@ -1,0 +1,75 @@
+esphome:
+  name: sonoff_basic_1
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "Wood-LAN"
+  password: "EprJ7B6xGjNuji27"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Sonoff Basic 1 Fallback Hotspot"
+    password: "ale6Cymv6dOp"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "b4P3rTbKFzcqgFCamBvM5pyDJy5e3FAm5kLTakYkiDbExKfHXo8t5gJ"
+
+ota:
+  password: "b4P3rTbKFzcqgFCamBvM5pyDJy5e3FAm5kLTakYkiDbExKfHXo8t5gJ"
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    id: "button"
+    on_press:
+      - switch.toggle: relayandled
+
+sensor:
+  - platform: wifi_signal
+    name: "sonof switch 1 wifi signal"
+    update_interval: 60s
+
+  - platform: uptime
+    name: "sonoff switch 1 uptime"
+
+text_sensor:
+  - platform: version
+    name: "sonoff switch 1 ESPHome version"
+    
+switch:
+  - platform: gpio
+    pin: GPIO12
+    id: relay
+  - platform: template
+    name: "sonoff switch 1"
+    optimistic: true
+    id: relayandled
+    turn_on_action:
+      - switch.turn_on: relay
+      - light.turn_on: led
+    turn_off_action:
+      - switch.turn_off: relay
+      - light.turn_off: led
+
+output:
+  - platform: esp8266_pwm
+    id: sonoff_green_led
+    pin:
+      number: GPIO13
+      inverted: True
+
+light:
+  - platform: monochromatic
+    name: "sonoff switch 1 green led"
+    output: sonoff_green_led
+    id: led
