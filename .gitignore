@@ -1,0 +1,15 @@
+.vscode
+secrets.yaml
+OZW_Log.txt
+pyozw.sqlite
+zwave_device_config*
+zwcfg_*
+zwscene.xml
+options.xml
+home-assistant.log
+node-red
+.storage
+.cloud
+deps
+.HA_VERSION
+home-assistant_v2*
