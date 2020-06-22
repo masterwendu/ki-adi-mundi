@@ -1,3 +1,0 @@
-telegram:
-  module: telegram
-  class: TelegramNotificationManager

@@ -1,7 +1,0 @@
-schlafen_gehen:
-  alias: Schlafen gehen
-  sequence:
-    - service: light.turn_on
-      entity_id: light.bettstripe
-    - service: switch.turn_on
-      entity_id: switch.switch_badezimmer_licht

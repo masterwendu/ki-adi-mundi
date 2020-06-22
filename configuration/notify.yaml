@@ -1,7 +1,0 @@
-- name: WENDELIN
-  platform: telegram
-  chat_id: !secret telegram_chat_wendelin_id
-
-- name: CARO_WENDI_GROUP
-  platform: telegram
-  chat_id: !secret telegram_chat_ki_adi_mundi_group
