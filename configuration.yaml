@@ -6,6 +6,7 @@ group: !include groups.yaml
 script: !include scripts.yaml
 
 recorder:
+  db_url: !secret history_db_url
 
 speedtestdotnet:
 
@@ -29,3 +30,16 @@ light: !include light.yaml
 
 zwave:
   usb_path: /dev/ttyACM0
+  device_config:
+    cover.schlafzimmer:
+      invert_percent: true
+      invert_openclose_buttons: true
+    cover.gaestezimmer:
+      invert_percent: true
+      invert_openclose_buttons: true
+    cover.kinderzimmer:
+      invert_percent: true
+      invert_openclose_buttons: true
+    cover.wohnzimmer_fenster:
+      invert_percent: true
+      invert_openclose_buttons: true
