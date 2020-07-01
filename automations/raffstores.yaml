@@ -1,0 +1,23 @@
+- alias: alle runter um 9
+  trigger:
+    platform: time
+    at: '09:00:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.raffstores_down
+
+- alias: alle up ausser schlafzimmer rauf um 1630
+  trigger:
+    platform: time
+    at: '16:30:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.raffstores_up_not_schlafzimmer
+
+- alias: alle up um 21
+  trigger:
+    platform: time
+    at: '21:00:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.raffstores_up
