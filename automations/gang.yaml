@@ -1,16 +1,10 @@
-- alias: Ganglicht toggle via taster beim schlafzimmer
+- alias: Ganglicht toggle via taster
   trigger:
     - platform: event
       event_type: deconz_event
       event_data:
         id: switch_2
         event: 1002
-  action:
-    - service: switch.toggle
-      entity_id: switch.gang_zwave_switch
-
-- alias: Ganglicht toggle via taster bei der Garderobe
-  trigger:
     - platform: state
       entity_id: switch.gang_garderobe
       from: 'off'
@@ -32,40 +26,31 @@
         brightness_pct: 100
 
 - alias: Ganglicht aus
+  id: 172b17ad-661b-46bf-a5f0-85bab36583ee
+  description: 'Ganglicht aus'
   trigger:
     - platform: state
       entity_id: switch.gang_zwave_switch
       from: 'on'
       to: 'off'
-  condition:
-    condition: or
-    conditions:
-    - condition: state
-      entity_id: binary_sensor.motion_gang
-      state: 'off'
-    - condition: numeric_state
-      entity_id: sensor.eingang_luminance
-      above: 100
   action:
-    - service: light.turn_off
-      data:
-        entity_id: light.ganglicht
-
-- alias: Ganglicht aus wenn Bewegung
-  trigger:
-    - platform: state
-      entity_id: switch.gang_zwave_switch
-      from: 'on'
-      to: 'off'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.motion_gang
-      state: 'on'
-    - condition: numeric_state
-      entity_id: sensor.eingang_luminance
-      below: 100
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.ganglicht
-        brightness_pct: 10
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: binary_sensor.motion_gang
+          state: 'on'
+        - condition: numeric_state
+          entity_id: sensor.eingang_luminance
+          below: 100
+        - condition: state
+          entity_id: automation.ganglicht_10_bei_bewegung
+          state: 'on'
+        sequence:
+          - service: light.turn_on
+            data:
+              entity_id: light.ganglicht
+              brightness_pct: 10
+      default:
+        - service: light.turn_off
+          data:
+            entity_id: light.ganglicht
