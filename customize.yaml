@@ -1,0 +1,3 @@
+sensor.temperatur_aussen:
+  icon: mdi:thermometer
+  friendly_name: Temperatur Außen

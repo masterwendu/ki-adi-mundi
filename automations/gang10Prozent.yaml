@@ -5,7 +5,7 @@
       from: 'off'
       to: 'on'
   condition:
-    # gang lich is not turned on 100%
+    # gang licht is not turned on 100%
     - condition: state
       entity_id: switch.gang_zwave_switch
       state: 'off'
@@ -18,21 +18,6 @@
       data:
         entity_id: light.ganglicht
         brightness_pct: 10
-
-- alias: Ganglicht aus nach Bewegung
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_gang
-      from: 'on'
-      to: 'off'
-  condition:
-      - condition: state
-        entity_id: switch.gang_zwave_switch
-        state: 'off'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.ganglicht
 
 - alias: Ganglicht Bewegungsautomation deaktiveren
   trigger:

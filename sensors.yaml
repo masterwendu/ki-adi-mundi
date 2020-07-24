@@ -16,9 +16,9 @@
   value_template: '{{ value_json.out }}'
   device_class: temperature
   unit_of_measurement: '°C'
-- platform: template
-  sensors:
-    temperatur_aussen:
-      friendly_name: "Temperatur Außen"
-      unit_of_measurement: '°C'
-      value_template: "{{[states('sensor.temperatur_aussen_rest'), states('states.sensor.temperature_24')] | min }}"
+- platform: min_max
+  type: min
+  name: temperatur_aussen
+  entity_ids:
+    - sensor.temperature_24
+    - sensor.temperatur_aussen_rest
