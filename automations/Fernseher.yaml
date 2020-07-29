@@ -9,6 +9,11 @@
     - service: switch.toggle
       data:
         entity_id: switch.steckdose_fernseher
+    - service: switch.broadlink_send_packet_192_168_0_134
+      data:
+        packet:
+          - !secret hdmi_switcher_power
+          - !secret simpli_tv_on_off
 
 - alias: Fernseher chromecast pause
   trigger:
