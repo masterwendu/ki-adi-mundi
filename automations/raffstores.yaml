@@ -19,5 +19,7 @@
     platform: time
     at: '21:00:00'
   action:
-    - service: script.turn_on
-      entity_id: script.raffstores_up
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.schlafzimmer
+        position: 0
