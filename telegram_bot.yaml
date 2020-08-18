@@ -4,3 +4,4 @@
     - !secret telegram_chat_ki_adi_mundi_group
     - !secret telegram_chat_caroline_id
     - !secret telegram_chat_wendelin_id
+    - !secret telegram_chat_wooddoor_channel
