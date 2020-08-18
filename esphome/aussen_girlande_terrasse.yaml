@@ -1,16 +1,16 @@
 esphome:
-  name: aussenlampe_sued_terasse
+  name: aussen_girlande_terrasse
   platform: ESP8266
   board: esp01_1m
 
 wifi:
-  ssid: "Wood-LAN"
+  ssid: "Wood-LAN-Outdoor"
   password: "EprJ7B6xGjNuji27"
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Aussenlampe Sued Terasse"
-    password: "XMr0GW8Qu8Oc"
+    ssid: "Aussen Girlande Terrasse"
+    password: "kwURaqiNU83n"
 
 captive_portal:
 
@@ -30,7 +30,7 @@ output:
                                        
 light:                                 
   - platform: binary                   
-    name: "Terassen-Lampe Süd"              
+    name: "Terassen-Girlande Süd"              
     output: shelly_1_relay                     
     id: lightid                        
                                        
