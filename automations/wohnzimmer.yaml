@@ -27,7 +27,7 @@
         entity_id: switch.wohnzimmer_wandleuchten_switch
     - service: switch.turn_off
       data:
-        entity_id: switch.sonoff_switch_1
+        entity_id: light.terassen_girlande_sud
 
 - alias: Wohnzimmer ein - damit bissi licht ist
   trigger:
@@ -156,7 +156,54 @@
         scene_id: 4
         scene_data: 0
   action:
-    - service: switch.toggle
+    - service: light.toggle
       data:
-        entity_id: switch.sonoff_switch_1
+        entity_id: light.terassen_girlande_sud
 
+
+- alias: Außen alles an
+  trigger:
+    - platform: state
+      entity_id: light.terassen_lampe_sud
+      from: 'off'
+      to: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.terassen_girlande_sud
+    - service: switch.turn_on
+      data:
+        entity_id: switch.licht_aussen_eingang
+    - service: automation.turn_off
+      data:
+        entity_id: automation.aussenlicht_aus_nach_10_minuten_und_keine_bewegung
+    - service: automation.turn_off
+      data:
+        entity_id: automation.aussenlicht_aus_nach_2_minuten_und_keine_bewegung
+    - service: automation.turn_off
+      data:
+        entity_id: automation.aussenlicht_ein_bei_bewegung
+
+
+- alias: Außen alles aus
+  trigger:
+    - platform: state
+      entity_id: light.terassen_lampe_sud
+      from: 'on'
+      to: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.terassen_girlande_sud
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_aussen_eingang
+    - service: automation.turn_on
+      data:
+        entity_id: automation.aussenlicht_aus_nach_10_minuten_und_keine_bewegung
+    - service: automation.turn_on
+      data:
+        entity_id: automation.aussenlicht_aus_nach_2_minuten_und_keine_bewegung
+    - service: automation.turn_on
+      data:
+        entity_id: automation.aussenlicht_ein_bei_bewegung

@@ -1,4 +1,5 @@
 - alias: Aussenlicht ein, bei Bewegung
+  id: 6cc405b5-24d6-49a0-86ed-64b4390f6ca0
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_eingang
@@ -12,6 +13,7 @@
       entity_id: switch.licht_aussen_eingang
 
 - alias: Aussenlicht aus nach 2 Minuten und keine Bewegung
+  id: 14964ab3-cb3e-498f-bd22-1a5aa67ce930
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_eingang
@@ -23,6 +25,7 @@
       entity_id: switch.licht_aussen_eingang
 
 - alias: Aussenlicht aus nach 10 Minuten und keine Bewegung
+  id: f40cd544-cb74-4cbc-bfd7-e43fb559eaca
   trigger:
     - platform: state
       entity_id: switch.licht_aussen_eingang
