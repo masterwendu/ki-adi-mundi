@@ -5,6 +5,12 @@
       event_data:
         id: switch_3
         event: 1001
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.keyfob
+        scene_id: 2
+        scene_data: 7800
   action:
     - service: switch.toggle
       data:
@@ -23,6 +29,72 @@
         packet:
           - !secret hdmi_switcher_1
 
+- alias: Fernseher vol up
+  mode: queued
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.keyfob
+        scene_id: 6
+        scene_data: 7680
+  action:
+    - service: broadlink.send
+      data:
+        host: 192.168.0.134
+        packet:
+          - !secret soundbar_volume_up
+
+
+- alias: Fernseher vol down
+  mode: queued
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.keyfob
+        scene_id: 5
+        scene_data: 7680
+  action:
+    - service: broadlink.send
+      data:
+        host: 192.168.0.134
+        packet:
+          - !secret soundbar_volume_down
+
+
+- alias: switch to TV hdmi
+  mode: queued
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.keyfob
+        scene_id: 3
+        scene_data: 7800
+  action:
+    - service: broadlink.send
+      data:
+        host: 192.168.0.134
+        packet:
+          - !secret hdmi_switcher_1
+
+- alias: switch to Chromecast hdmi
+  mode: queued
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.keyfob
+        scene_id: 4
+        scene_data: 7800
+  action:
+    - service: broadlink.send
+      data:
+        host: 192.168.0.134
+        packet:
+          - !secret hdmi_switcher_2
+
 - alias: Fernseher chromecast pause
   trigger:
     - platform: event
@@ -30,10 +102,50 @@
       event_data:
         id: switch_3
         event: 1002
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.keyfob
+        scene_id: 2
+        scene_data: 7680
   action:
     - service: media_player.media_play_pause
       data:
         entity_id: media_player.wood_cast
+    - service: broadlink.send
+      data:
+        host: 192.168.0.134
+        packet:
+          - !secret soundbar_mute
+
+- alias: TV channel up
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.keyfob
+        scene_id: 4
+        scene_data: 7680
+  action:
+    - service: broadlink.send
+      data:
+        host: 192.168.0.134
+        packet:
+          - !secret simpli_tv_channel_up
+- alias: TV channel down
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.keyfob
+        scene_id: 3
+        scene_data: 7680
+  action:
+    - service: broadlink.send
+      data:
+        host: 192.168.0.134
+        packet:
+          - !secret simpli_tv_channel_down
 
 - alias: Wohnzimmer stimmung scene TV
   trigger:
@@ -48,6 +160,12 @@
       event_data:
         id: switch_3
         event: 1004
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.keyfob
+        scene_id: 1
+        scene_data: 7800
   action:
     - service: light.turn_off
       data:
