@@ -15,19 +15,18 @@
     - service: switch.toggle
       data:
         entity_id: switch.steckdose_fernseher
-    - service: broadlink.send
+    - service: broadlink.send_command
       data:
-        host: 192.168.0.134
-        packet:
+        entity_id: remote.remote
+        command:
           - !secret hdmi_switcher_power
           - !secret simpli_tv_on_off
     - delay:
         seconds: 1
-    - service: broadlink.send
+    - service: broadlink.send_command
       data:
-        host: 192.168.0.134
-        packet:
-          - !secret hdmi_switcher_1
+        entity_id: remote.remote
+        command: !secret hdmi_switcher_1
 
 - alias: Fernseher vol up
   mode: queued
@@ -39,10 +38,10 @@
         scene_id: 6
         scene_data: 7680
   action:
-    - service: broadlink.send
+    - service: broadlink.send_command
       data:
-        host: 192.168.0.134
-        packet:
+        entity_id: remote.remote
+        command:
           - !secret soundbar_volume_up
 
 
@@ -56,10 +55,10 @@
         scene_id: 5
         scene_data: 7680
   action:
-    - service: broadlink.send
+    - service: broadlink.send_command
       data:
-        host: 192.168.0.134
-        packet:
+        entity_id: remote.remote
+        command:
           - !secret soundbar_volume_down
 
 
@@ -73,10 +72,10 @@
         scene_id: 3
         scene_data: 7800
   action:
-    - service: broadlink.send
+    - service: broadlink.send_command
       data:
-        host: 192.168.0.134
-        packet:
+        entity_id: remote.remote
+        command:
           - !secret hdmi_switcher_1
 
 - alias: switch to Chromecast hdmi
@@ -89,10 +88,10 @@
         scene_id: 4
         scene_data: 7800
   action:
-    - service: broadlink.send
+    - service: broadlink.send_command
       data:
-        host: 192.168.0.134
-        packet:
+        entity_id: remote.remote
+        command:
           - !secret hdmi_switcher_2
 
 - alias: Fernseher chromecast pause
@@ -112,10 +111,10 @@
     - service: media_player.media_play_pause
       data:
         entity_id: media_player.wood_cast
-    - service: broadlink.send
+    - service: broadlink.send_command
       data:
-        host: 192.168.0.134
-        packet:
+        entity_id: remote.remote
+        command:
           - !secret soundbar_mute
 
 - alias: TV channel up
@@ -127,10 +126,10 @@
         scene_id: 4
         scene_data: 7680
   action:
-    - service: broadlink.send
+    - service: broadlink.send_command
       data:
-        host: 192.168.0.134
-        packet:
+        entity_id: remote.remote
+        command:
           - !secret simpli_tv_channel_up
 - alias: TV channel down
   trigger:
@@ -141,10 +140,10 @@
         scene_id: 3
         scene_data: 7680
   action:
-    - service: broadlink.send
+    - service: broadlink.send_command
       data:
-        host: 192.168.0.134
-        packet:
+        entity_id: remote.remote
+        command:
           - !secret simpli_tv_channel_down
 
 - alias: Wohnzimmer stimmung scene TV
