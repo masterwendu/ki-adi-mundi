@@ -1,3 +1,0 @@
-- platform: broadlink
-  host: !secret broadlink_rm_3_mini_ip
-  mac: !secret broadlink_rm_3_mini_mac

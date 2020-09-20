@@ -1,7 +1,7 @@
 - alias: alle runter um 9
   trigger:
     platform: time
-    at: '08:45:00'
+    at: input_datetime.raffstores_down
   action:
     - service: script.turn_on
       entity_id: script.raffstores_down
@@ -9,7 +9,7 @@
 - alias: alle up ausser schlafzimmer rauf um 1630
   trigger:
     platform: time
-    at: '16:30:00'
+    at: input_datetime.raffstores_up_1
   action:
     - service: script.turn_on
       entity_id: script.raffstores_up_not_schlafzimmer
@@ -17,7 +17,7 @@
 - alias: alle up um 21
   trigger:
     platform: time
-    at: '19:00:00'
+    at: input_datetime.raffstores_up_2
   action:
     - service: cover.set_cover_position
       data:
