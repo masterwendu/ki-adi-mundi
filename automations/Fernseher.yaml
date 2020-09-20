@@ -15,17 +15,17 @@
     - service: switch.toggle
       data:
         entity_id: switch.steckdose_fernseher
-    - service: broadlink.send_command
+    - service: remote.send_command
       data:
-        entity_id: remote.remote
+        entity_id: remote.broadlink_rm_mini_remote
         command:
           - !secret hdmi_switcher_power
           - !secret simpli_tv_on_off
     - delay:
         seconds: 1
-    - service: broadlink.send_command
+    - service: remote.send_command
       data:
-        entity_id: remote.remote
+        entity_id: remote.broadlink_rm_mini_remote
         command: !secret hdmi_switcher_1
 
 - alias: Fernseher vol up
@@ -38,9 +38,9 @@
         scene_id: 6
         scene_data: 7680
   action:
-    - service: broadlink.send_command
+    - service: remote.send_command
       data:
-        entity_id: remote.remote
+        entity_id: remote.broadlink_rm_mini_remote
         command:
           - !secret soundbar_volume_up
 
@@ -55,9 +55,9 @@
         scene_id: 5
         scene_data: 7680
   action:
-    - service: broadlink.send_command
+    - service: remote.send_command
       data:
-        entity_id: remote.remote
+        entity_id: remote.broadlink_rm_mini_remote
         command:
           - !secret soundbar_volume_down
 
@@ -72,9 +72,9 @@
         scene_id: 3
         scene_data: 7800
   action:
-    - service: broadlink.send_command
+    - service: remote.send_command
       data:
-        entity_id: remote.remote
+        entity_id: remote.broadlink_rm_mini_remote
         command:
           - !secret hdmi_switcher_1
 
@@ -88,9 +88,9 @@
         scene_id: 4
         scene_data: 7800
   action:
-    - service: broadlink.send_command
+    - service: remote.send_command
       data:
-        entity_id: remote.remote
+        entity_id: remote.broadlink_rm_mini_remote
         command:
           - !secret hdmi_switcher_2
 
@@ -111,9 +111,9 @@
     - service: media_player.media_play_pause
       data:
         entity_id: media_player.wood_cast
-    - service: broadlink.send_command
+    - service: remote.send_command
       data:
-        entity_id: remote.remote
+        entity_id: remote.broadlink_rm_mini_remote
         command:
           - !secret soundbar_mute
 
@@ -126,9 +126,9 @@
         scene_id: 4
         scene_data: 7680
   action:
-    - service: broadlink.send_command
+    - service: remote.send_command
       data:
-        entity_id: remote.remote
+        entity_id: remote.broadlink_rm_mini_remote
         command:
           - !secret simpli_tv_channel_up
 - alias: TV channel down
@@ -140,9 +140,9 @@
         scene_id: 3
         scene_data: 7680
   action:
-    - service: broadlink.send_command
+    - service: remote.send_command
       data:
-        entity_id: remote.remote
+        entity_id: remote.broadlink_rm_mini_remote
         command:
           - !secret simpli_tv_channel_down
 

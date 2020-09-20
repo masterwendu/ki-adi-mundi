@@ -1,0 +1,12 @@
+raffstores_down:
+  name: Raffstores runter um
+  has_date: false
+  has_time: true
+raffstores_up_1:
+  name: Raffstores rauf 1 um
+  has_date: false
+  has_time: true
+raffstores_up_2:
+  name: Raffstores rauf 2 um
+  has_date: false
+  has_time: true
