@@ -1,0 +1,55 @@
+- alias: kueche alles an mitte
+  trigger:
+    - platform: state
+      entity_id: switch.licht_kueche_mitte
+      from: 'off'
+      to: 'on'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.licht_kueche_abwasch
+    - service: switch.turn_on
+      data:
+        entity_id: switch.licht_kueche_insel
+- alias: kueche alles aus mitte
+  trigger:
+    - platform: state
+      entity_id: switch.licht_kueche_mitte
+      from: 'on'
+      to: 'off'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_kueche_abwasch
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_kueche_insel
+
+
+- alias: Wohnzimmer küche ein
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 2
+        scene_data: 0
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.licht_kueche_mitte
+- alias: Wohnzimmer küche aus
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 6
+        scene_data: 0
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_kueche_mitte
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_speis
