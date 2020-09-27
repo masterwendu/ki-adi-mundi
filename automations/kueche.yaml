@@ -53,3 +53,9 @@
     - service: switch.turn_off
       data:
         entity_id: switch.licht_speis
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_kueche_abwasch
+    - service: switch.turn_off
+      data:
+        entity_id: switch.licht_kueche_insel

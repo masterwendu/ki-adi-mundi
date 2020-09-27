@@ -79,6 +79,12 @@
     - service: switch.turn_on
       data:
         entity_id: switch.xiaomi_smart_plug
+    - service: switch.turn_on
+      data:
+        entity_id: switch.wohnzimmer_wandleuchten_switch
+    - service: switch.turn_on
+      data:
+        entity_id: switch.licht_kueche_mitte
 
 - alias: Wohnzimmer Esstisch toggle
   trigger:
