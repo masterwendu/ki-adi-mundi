@@ -25,9 +25,12 @@
     - service: switch.turn_off
       data:
         entity_id: switch.wohnzimmer_wandleuchten_switch
-    - service: switch.turn_off
+    - service: light.turn_off
       data:
         entity_id: light.terassen_girlande_sud
+    - service: light.turn_off
+      data:
+        entity_id: light.light.terassen_lampe_sud
 
 - alias: Wohnzimmer ein - damit bissi licht ist
   trigger:
