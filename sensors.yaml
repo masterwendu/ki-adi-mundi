@@ -12,7 +12,7 @@
       unit_of_measurement: '°C'
 - platform: rest
   name: temperatur_aussen_rest
-  resource: http://192.168.0.6/data/info.php
+  resource: !secret idm_info_api_url
   value_template: '{{ value_json.out }}'
   device_class: temperature
   unit_of_measurement: '°C'
@@ -22,3 +22,7 @@
   entity_ids:
     - sensor.temperature_24
     - sensor.temperatur_aussen_rest
+- platform: rest
+  name: phoniebox_state
+  resource: !secret phoniebox_player_api_url
+  value_template: '{{ value_json.state }}'

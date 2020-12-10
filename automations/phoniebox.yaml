@@ -1,0 +1,63 @@
+- alias: stop phoniebox if it is too long in pause
+  trigger:
+    platform: state
+    entity_id: sensor.phoniebox_state
+    to: pause
+    for: "00:05:00"
+  action:
+    - service: rest_command.phoniebox_stop
+- alias: phoniebox play pause
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: fernbedienung_wohnzimmer
+        event: 1002
+  action:
+    - choose:
+      - conditions:
+          - condition: state
+            entity_id: sensor.phoniebox_state
+            state: "play"
+        sequence:
+          - service: rest_command.phoniebox_pause
+      default:
+        - service: rest_command.phoniebox_play
+- alias: phoniebox next
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: fernbedienung_wohnzimmer
+        event: 5002
+  action:
+    - service: rest_command.phoniebox_next
+- alias: phoniebox previous
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: fernbedienung_wohnzimmer
+        event: 4002
+  action:
+    - service: rest_command.phoniebox_prev
+- alias: phoniebox volumne up
+  mode: queued
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: fernbedienung_wohnzimmer
+        event: 2002
+  action:
+    - service: rest_command.phoniebox_volume_up
+- alias: phoniebox volumne down
+  mode: queued
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: fernbedienung_wohnzimmer
+        event: 3002
+  action:
+    - service: rest_command.phoniebox_volume_down

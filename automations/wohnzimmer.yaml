@@ -103,6 +103,22 @@
         entity_id: light.dimmer_wohnzimmer_esstisch
         brightness_pct: 100
 
+- alias: Wohnzimmer Toggle radio oe3
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        node_id: 33
+        scene_id: 7
+        scene_data: 1
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: fernbedienung_wohnzimmer
+        event: 1001
+  action:
+    - service: rest_command.phoniebox_start_radio_oe3
+
 - alias: Wohnzimmer 3. Welt Licht toggle
   trigger:
     - platform: event
@@ -175,3 +191,48 @@
     - service: automation.turn_on
       data:
         entity_id: automation.aussenlicht_ein_bei_bewegung
+
+- alias: Weihnachtsautomation Fenster an
+  trigger:
+    - platform: time
+      at: "06:00:00"
+    - platform: sun
+      event: sunset
+      offset: "-01:00:00"
+  action:
+    service: switch.turn_on
+    entity_id: switch.steckdose_gosund_4
+- alias: Weihnachtsautomation Fenster aus
+  trigger:
+    - platform: sun
+      event: sunrise
+      offset: "+01:00:00"
+    - platform: time
+      at: "23:00:00"
+  action:
+    service: switch.turn_off
+    entity_id: switch.steckdose_gosund_4
+
+- alias: turn on Weihnachtslicht Fenster
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: onoff_tradfri_1
+        event: 1002
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.steckdose_gosund_4
+
+- alias: turn off Weihnachtslicht Fenster
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: onoff_tradfri_1
+        event: 2002
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.steckdose_gosund_4

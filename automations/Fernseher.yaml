@@ -27,6 +27,7 @@
       data:
         entity_id: remote.broadlink_rm_mini_remote
         command: !secret hdmi_switcher_1
+    - service: rest_command.phoniebox_stop
 
 - alias: Fernseher vol up
   mode: queued
@@ -111,11 +112,6 @@
     - service: media_player.media_play_pause
       data:
         entity_id: media_player.wood_cast
-    - service: remote.send_command
-      data:
-        entity_id: remote.broadlink_rm_mini_remote
-        command:
-          - !secret soundbar_mute
 
 - alias: TV channel up
   trigger:

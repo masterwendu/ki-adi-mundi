@@ -88,3 +88,11 @@
   action:
     - service: automation.toggle
       entity_id: automation.ganglicht_10_bei_bewegung
+
+- alias: Ganglicht automation activate in the morning
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: automation.turn_on
+      entity_id: automation.ganglicht_10_bei_bewegung

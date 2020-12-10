@@ -5,13 +5,27 @@
       event_data:
         id: switch_2
         event: 1002
+  action:
+    - service: switch.toggle
+      entity_id: switch.gang_zwave_switch
+
+- alias: Ganglicht toggle via helper switch
+  trigger:
     - platform: state
-      entity_id: switch.gang_garderobe
+      entity_id: switch.gang_helper_garderobe
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: switch.gang_helper_spiegel
       from: 'off'
       to: 'on'
   action:
     - service: switch.toggle
       entity_id: switch.gang_zwave_switch
+    - service: switch.turn_off
+      entity_id: switch.gang_helper_garderobe
+    - service: switch.turn_off
+      entity_id: switch.gang_helper_spiegel
 
 - alias: Ganglicht an 100%
   trigger:

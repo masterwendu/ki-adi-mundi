@@ -1,0 +1,59 @@
+- alias: Schreibtisch Wendelin Strom aus
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.steckdose_schreibtisch_wendelin_watt
+      below: 3
+      for:
+        minutes: 2
+  condition:
+    - condition: state
+      entity_id: switch.steckdose_schreibtisch_wendelin
+      state: "on"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.steckdose_schreibtisch_wendelin
+      
+- alias: Schreibtisch Caro Strom aus
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.steckdose_schreibtisch_caro_watt
+      below: 1
+      for:
+        minutes: 2
+  condition:
+    - condition: state
+      entity_id: switch.steckdose_schreibtisch_caro
+      state: "on"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.steckdose_schreibtisch_caro
+
+- alias: Turn PC on
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: smart_1_wendelin_schreibtisch
+        event: 1002
+  condition:
+    - condition: state
+      entity_id: switch.steckdose_schreibtisch_wendelin
+      state: "off"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.steckdose_schreibtisch_wendelin
+
+- alias: Turn Caro PC power on
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_6_caro_schreibtisch
+        event: 1002
+  condition:
+    - condition: state
+      entity_id: switch.steckdose_schreibtisch_caro
+      state: "off"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.steckdose_schreibtisch_caro

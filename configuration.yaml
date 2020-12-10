@@ -30,6 +30,8 @@ calendar:
 sensor: !include sensors.yaml
 light: !include light.yaml
 input_datetime: !include input_datetime.yaml
+input_boolean: !include input_boolean.yaml
+rest_command: !include rest_command.yaml
 
 zwave:
   usb_path: /dev/ttyACM0

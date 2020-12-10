@@ -1,0 +1,21 @@
+- alias: Kodi laden
+  trigger:
+    - platform: state
+      entity_id: vacuum.kodi
+      to: 'cleaning'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.steckdose_kodi
+      
+- alias: Kodi Strom aus
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.kodi_battery
+      above: 99
+  condition:
+    - condition: state
+      entity_id: 'vacuum.kodi'
+      state: 'docked'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.steckdose_kodi

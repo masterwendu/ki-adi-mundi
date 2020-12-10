@@ -1,9 +1,9 @@
 - name: ki_adi_mundi_group
   platform: telegram
   chat_id: !secret telegram_chat_ki_adi_mundi_group
-- name: wooddoor
+- name: tor_group
   platform: telegram
-  chat_id: !secret telegram_chat_wooddoor_channel
+  chat_id: !secret telegram_chat_tor_group
 - name: wendelin_telegram
   platform: telegram
   chat_id: !secret telegram_chat_wendelin_id

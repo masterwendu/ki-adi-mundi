@@ -1,0 +1,40 @@
+phoniebox_stop:
+  method: put
+  url: !secret phoniebox_player_api_url
+  content_type: "application/json; charset=utf-8"
+  payload: '{"command":"stop","value":null}'
+phoniebox_pause:
+  method: put
+  url: !secret phoniebox_player_api_url
+  content_type: "application/json; charset=utf-8"
+  payload: '{"command":"pause","value":null}'
+phoniebox_play:
+  method: put
+  url: !secret phoniebox_player_api_url
+  content_type: "application/json; charset=utf-8"
+  payload: '{"command":"play","value":null}'
+phoniebox_next:
+  method: put
+  url: !secret phoniebox_player_api_url
+  content_type: "application/json; charset=utf-8"
+  payload: '{"command":"next","value":null}'
+phoniebox_prev:
+  method: put
+  url: !secret phoniebox_player_api_url
+  content_type: "application/json; charset=utf-8"
+  payload: '{"command":"prev","value":null}'
+phoniebox_volume_up:
+  method: put
+  url: !secret phoniebox_player_api_url
+  content_type: "application/json; charset=utf-8"
+  payload: '{"command":"volumeup","value":null}'
+phoniebox_volume_down:
+  method: put
+  url: !secret phoniebox_player_api_url
+  content_type: "application/json; charset=utf-8"
+  payload: '{"command":"volumedown","value":null}'
+phoniebox_start_radio_oe3:
+  method: put
+  url: !secret phoniebox_playlist_api_url
+  content_type: "application/json; charset=utf-8"
+  payload: '{"playlist":"radio/oe3","recursive":"false"}'

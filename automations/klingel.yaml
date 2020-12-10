@@ -1,23 +1,30 @@
-- alias: klingel_wendelin
+- alias: tor klingel
   trigger:
     - platform: state
       entity_id: switch.door_bell_switch_sensor
       from: 'off'
       to: 'on'
   action:
-    - service: notify.mobile_app_mi_5s
+    - service: telegram_bot.send_sticker
       data:
-        message: '🔔 Ring - Torklingel'
-        data:
-          actions:
-            - action: "open_garden_door"
-              title: "Öffnen"
-- alias: Open garden door
+        file: CAACAgIAAxkBAAIHyF-2u5KaCfd28UVLYV8loQL349rkAAJMAAOvxlEaOt_FkTwsoz8eBA
+        target: !secret telegram_chat_tor_channel
+    - service: telegram_bot.send_message
+      data:
+        message: '*🔔 Ring - Torklingel*'
+        target: !secret telegram_chat_tor_channel
+        inline_keyboard: [[["Tor öffnen", "/open"]]]
+- alias: tor open via telegram
   trigger:
     platform: event
-    event_type: mobile_app_notification_action
+    event_type: telegram_callback
     event_data:
-      action: open_garden_door
+      command: '/open'
   action:
-    service: switch.turn_on
-    entity_id: switch.open_door_switch
+    - service: switch.turn_on
+      entity_id: switch.open_door_switch
+    - service: telegram_bot.answer_callback_query
+      data:
+        callback_query_id: '{{ trigger.event.data.id }}'
+        message: 'Tor wird für 3 Sekunden geöffnet'
+        show_alert: true

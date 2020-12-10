@@ -1,0 +1,9 @@
+fahrradkamera_motion_detected:
+  name: Fahrradkamera - Motion detected
+  icon: mdi:eye
+waschmaschine_laeuft:
+  name: Waschmaschine läuft
+  icon: mdi:washing-machine
+trockner_laeuft:
+  name: Trockner läuft
+  icon: mdi:washing-machine

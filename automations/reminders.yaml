@@ -5,14 +5,9 @@
       from: 'off'
       to: 'on'
   action:
-    - service: notify.mobile_app_iron_man
+    - service: notify.ki_adi_mundi_group
       data:
-        message: '🥦 Bitte stell die Biotonne raus!'
-        data:
-          presentation_options:
-            - alert
-            - badge
-            - sound
+        message: '🥦 Bitte stell die Biotonne raus! Morgen wird sie abgeholt'
 - alias: mistkuebel_notification
   trigger:
     - platform: state
@@ -20,14 +15,9 @@
       from: 'off'
       to: 'on'
   action:
-    - service: notify.mobile_app_iron_man
+    - service: notify.ki_adi_mundi_group
       data:
-        message: '🗑️ Bitte stell den Mistkübel raus!'
-        data:
-          presentation_options:
-            - alert
-            - badge
-            - sound
+        message: '🗑️ Bitte stell den Mistkübel raus! Heute zu Mittag wird er abgeholt'
 - alias: gelber_sack_notification
   trigger:
     - platform: state
@@ -35,11 +25,6 @@
       from: 'off'
       to: 'on'
   action:
-    - service: notify.mobile_app_iron_man
+    - service: notify.ki_adi_mundi_group
       data:
-        message: '♳ Bitte häng den gelben Sack raus!'
-        data:
-          presentation_options:
-            - alert
-            - badge
-            - sound
+        message: '♳ Bitte häng den gelben Sack raus! Morgen wird er abgeholt'

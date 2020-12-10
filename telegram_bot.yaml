@@ -1,7 +1,7 @@
 - platform: polling
   api_key: !secret telegram_bot_ki_adi_mundi_api_key
   allowed_chat_ids:
+    - !secret telegram_chat_tor_channel
     - !secret telegram_chat_ki_adi_mundi_group
     - !secret telegram_chat_caroline_id
     - !secret telegram_chat_wendelin_id
-    - !secret telegram_chat_wooddoor_channel

@@ -1,0 +1,74 @@
+esphome:
+  name: steckdose_schreibtisch_caro_esp
+  platform: ESP8266
+  board: esp8285
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Schreibtisch Caro Stecker"
+    password: "OUEsYw5E03OC"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+binary_sensor:
+  - platform: gpio
+    id: steckdose_schreibtisch_caro_power_button
+    pin:
+      number: GPIO3
+      inverted: True
+    on_press:
+      - switch.toggle: steckdose_schreibtisch_caro_switch
+
+switch:
+  - platform: gpio
+    id: steckdose_schreibtisch_caro_led
+    pin:
+      number: GPIO1
+      inverted: true
+  - platform: gpio
+    id: steckdose_schreibtisch_caro_relay
+    pin: GPIO14
+  - platform: template
+    id: steckdose_schreibtisch_caro_switch
+    name: "Steckdose Schreibtisch Caro"
+    optimistic: true
+    turn_on_action:
+      - switch.turn_on: steckdose_schreibtisch_caro_relay
+      - switch.turn_on: steckdose_schreibtisch_caro_led
+    turn_off_action:
+      - switch.turn_off: steckdose_schreibtisch_caro_relay
+      - switch.turn_off: steckdose_schreibtisch_caro_led
+
+sensor:
+  - platform: hlw8012
+    sel_pin:
+      number: GPIO12
+      inverted: True
+    cf_pin: GPIO04
+    cf1_pin: GPIO05
+    current_resistor: 0.00221
+    voltage_divider: 871
+    current:
+      name: "Steckdose Schreibtisch Caro Ampere"
+      unit_of_measurement: A
+    voltage:
+      name: "Steckdose Schreibtisch Caro Volt"
+      unit_of_measurement: V
+    power:
+      name: "Steckdose Schreibtisch Caro Watt"
+      unit_of_measurement: W
+      id: "energy_temp_Wattage"
+    change_mode_every: 8
+    update_interval: 10s

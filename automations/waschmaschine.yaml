@@ -1,0 +1,81 @@
+- alias: Waschmaschine laeuft
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.steckdose_waschmaschine_watt
+      above: 15
+      for:
+        minutes: 2
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.waschmaschine_laeuft
+    
+- alias: Waschmaschine fertig
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.steckdose_waschmaschine_watt
+      below: 16
+      for:
+        minutes: 2
+  condition:
+    - condition: state
+      entity_id: input_boolean.waschmaschine_laeuft
+      state: "on"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.steckdose_waschmaschine_led
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.waschmaschine_laeuft
+      
+- alias: Waschmaschine ausgeraeumt
+  trigger:
+    - platform: event
+      event_type: esphome.steckdose_waschmaschine_button_pressed
+  condition:
+    - condition: state
+      entity_id: switch.steckdose_waschmaschine_led
+      state: "on"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.steckdose_waschmaschine_led
+      
+# trockner
+- alias: Trockner laeuft
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.steckdose_trockner_watt
+      above: 15
+      for:
+        minutes: 2
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.trockner_laeuft
+    
+- alias: Trockner fertig
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.steckdose_trockner_watt
+      below: 16
+      for:
+        minutes: 2
+  condition:
+    - condition: state
+      entity_id: input_boolean.trockner_laeuft
+      state: "on"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.steckdose_trockner_led
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.trockner_laeuft
+
+
+- alias: Trockner ausgeraeumt
+  trigger:
+    - platform: event
+      event_type: esphome.steckdose_trockner_button_pressed
+  condition:
+    - condition: state
+      entity_id: switch.steckdose_trockner_led
+      state: "on"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.steckdose_trockner_led

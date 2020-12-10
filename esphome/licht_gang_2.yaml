@@ -1,5 +1,5 @@
 esphome:
-  name: licht_gang
+  name: licht_gang_2
   platform: ESP8266
   board: esp01_1m
 
@@ -9,7 +9,7 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Licht Gang Fallback Hotspot"
+    ssid: "Licht Gang 2 Fallback Hotspot"
     password: "XpKpnC1jMFi9"
 
 captive_portal:
@@ -24,13 +24,13 @@ ota:
 
 light:
   - platform: monochromatic
-    name: 'Gang Licht 1'
-    id: gang_licht_1
-    output: output_red
+    name: 'Gang Licht 3'
+    id: gang_licht_3
+    output: output_blue
   - platform: monochromatic
-    name: 'Gang Licht 2'
-    id: gang_licht_2
-    output: output_green
+    name: 'Gang Licht 4'
+    id: gang_licht_4
+    output: output_white
     
 status_led:
   pin: GPIO2
