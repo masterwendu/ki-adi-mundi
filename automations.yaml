@@ -1,0 +1,29 @@
+- id: '1607889775235'
+  alias: Go to bed
+  description: Licht in Bad gr. und Schlafzimmer einschalten
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.keyfob
+      scene_id: 5
+      scene_data: 7800
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: go_to_bed
+  condition:
+  - condition: time
+    after: '19:00:00'
+  action:
+  - type: turn_on
+    device_id: 105af14733b7e3f6878b3302e4ba5aca
+    entity_id: light.badezimmer_gr_dimmer_1_level
+    domain: light
+    brightness_pct: 15
+  - type: turn_on
+    device_id: 6f789b5aaaa5db36923bab77068235e3
+    entity_id: light.nachtischlicht_wendelin
+    domain: light
+    brightness_pct: 50
+  mode: single
