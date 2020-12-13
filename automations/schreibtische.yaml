@@ -28,7 +28,7 @@
     - service: switch.turn_off
       entity_id: switch.steckdose_schreibtisch_caro
 
-- alias: Turn PC on
+- alias: Turn PC on Wendelin
   trigger:
     - platform: event
       event_type: deconz_event
@@ -42,6 +42,40 @@
   action:
     - service: switch.turn_on
       entity_id: switch.steckdose_schreibtisch_wendelin
+
+- alias: Turn Schreibtischlicht on Wendelin
+  trigger:
+    - platform: state
+      entity_id: switch.steckdose_schreibtisch_wendelin
+      to: 'on'
+    - platform: sun
+      event: sunset
+      offset: "+00:01:00"
+  condition:
+    - condition: state
+      entity_id: 'sun.sun'
+      state: 'below_horizon'
+  action:
+    - service: light.turn_on
+      entity_id: light.light_stripe_schreibtisch_wendelin
+      data:
+        brightness: 100
+
+- alias: Turn Schreibtischlicht off Wendelin
+  trigger:
+    - platform: state
+      entity_id: switch.steckdose_schreibtisch_wendelin
+      to: 'off'
+    - platform: sun
+      event: sunrise
+      offset: "+00:01:00"
+  condition:
+    - condition: state
+      entity_id: 'light.light_stripe_schreibtisch_wendelin'
+      state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.light_stripe_schreibtisch_wendelin
 
 - alias: Turn Caro PC power on
   trigger:
