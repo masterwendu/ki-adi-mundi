@@ -82,7 +82,7 @@
     - platform: event
       event_type: deconz_event
       event_data:
-        id: switch_6_caro_schreibtisch
+        id: smart_switch_6_caro_schreibtisch
         event: 1002
   condition:
     - condition: state

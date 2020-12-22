@@ -27,3 +27,44 @@
     domain: light
     brightness_pct: 50
   mode: single
+- id: '1607944968245'
+  alias: Motion Technikraum
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 9c0c318b8047fb24403e56c6ecbca801
+    entity_id: binary_sensor.presence_28
+    domain: binary_sensor
+  - type: no_motion
+    platform: device
+    device_id: 9c0c318b8047fb24403e56c6ecbca801
+    entity_id: binary_sensor.presence_28
+    domain: binary_sensor
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - type: is_motion
+        condition: device
+        device_id: 9c0c318b8047fb24403e56c6ecbca801
+        entity_id: binary_sensor.presence_28
+        domain: binary_sensor
+      sequence:
+      - type: turn_on
+        device_id: 6036b3336cf042dc9fe4120887474b74
+        entity_id: switch.switch_technikraum_switch
+        domain: switch
+    - conditions:
+      - type: is_no_motion
+        condition: device
+        device_id: 9c0c318b8047fb24403e56c6ecbca801
+        entity_id: binary_sensor.presence_28
+        domain: binary_sensor
+      sequence:
+      - type: turn_off
+        device_id: 6036b3336cf042dc9fe4120887474b74
+        entity_id: switch.switch_technikraum_switch
+        domain: switch
+    default: []
+  mode: single
