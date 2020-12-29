@@ -68,3 +68,123 @@
         domain: switch
     default: []
   mode: single
+- id: '1608990055556'
+  alias: Ganglicht
+  description: Ganglicht an/aus je nachdem ob Bewegung oder der Schalter betätigt
+    wurde
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_gang
+  - platform: state
+    entity_id: switch.gang_zwave_switch
+  - platform: state
+    entity_id: input_boolean.gang_licht_bewegungsmelder
+  - platform: state
+    entity_id: input_number.gang_motion_brightness
+  - platform: state
+    entity_id: input_number.gang_motion_brightness_lux_limit
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: switch.gang_zwave_switch
+        state: 'on'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness_pct: 100
+        entity_id: light.ganglicht
+    default:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.gang_licht_bewegungsmelder
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.motion_gang
+          state: 'on'
+        - condition: template
+          value_template: "{% if ( states( 'sensor.eingang_luminance' ) | float) <\n\
+            \    ( states( 'input_number.gang_motion_brightness_lux_limit' ) | float\
+            \ ) %}true\n    {% endif %}"
+        sequence:
+        - service: light.turn_on
+          data:
+            brightness_pct: '{{ states(''input_number.gang_motion_brightness'') |
+              int }}'
+          entity_id: light.ganglicht
+      default:
+      - service: light.turn_off
+        data: {}
+        entity_id: light.ganglicht
+  mode: restart
+- id: '1608990595838'
+  alias: Ganglicht mit Bewegung trigger
+  description: Schaltet die Ganglicht Bewegungsmelder an/aus
+  trigger:
+  - platform: time
+    at: 06:00:00
+  - device_id: c079c6175f0a4f26920ab30ec711c375
+    domain: deconz
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_on
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      node_id: 33
+      scene_id: 4
+      scene_data: 1
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: time
+        after: 06:00:00
+        before: 06:01:00
+      sequence:
+      - service: input_boolean.turn_on
+        data: {}
+        entity_id: input_boolean.gang_licht_bewegungsmelder
+    default:
+    - service: input_boolean.toggle
+      data: {}
+      entity_id: input_boolean.gang_licht_bewegungsmelder
+  mode: restart
+- id: '1608990846676'
+  alias: Ganglicht von externen Tastern
+  description: Ganglicht zu 100% ein von externen Tastern im Gang
+  trigger:
+  - platform: device
+    type: turned_on
+    device_id: 573c11bd695edb7e46c7a2acee4d2835
+    entity_id: switch.gang_helper_spiegel
+    domain: switch
+  - platform: device
+    type: turned_on
+    device_id: 5d3fcf20370a4f9aa9490e203cdc2a05
+    entity_id: switch.gang_helper_garderobe
+    domain: switch
+  - device_id: c079c6175f0a4f26920ab30ec711c375
+    domain: deconz
+    platform: device
+    type: remote_button_short_release
+    subtype: turn_on
+  condition: []
+  action:
+  - type: toggle
+    device_id: 972dd1ae14e64277a125e7f027cf7096
+    entity_id: switch.gang_zwave_switch
+    domain: switch
+  - type: turn_off
+    device_id: 573c11bd695edb7e46c7a2acee4d2835
+    entity_id: switch.gang_helper_spiegel
+    domain: switch
+  - type: turn_off
+    device_id: 5d3fcf20370a4f9aa9490e203cdc2a05
+    entity_id: switch.gang_helper_garderobe
+    domain: switch
+  mode: restart

@@ -7,3 +7,6 @@ waschmaschine_laeuft:
 trockner_laeuft:
   name: Trockner läuft
   icon: mdi:washing-machine
+gang_licht_bewegungsmelder:
+  name: Ganglicht Bewegungsmelder
+  icon: mdi:motion-sensor

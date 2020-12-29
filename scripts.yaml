@@ -1,0 +1,60 @@
+raffstores_down:
+  sequence:
+  - service: cover.set_cover_position
+    data:
+      position: 100
+      entity_id:
+      - cover.wohnzimmer_fenster
+      - cover.wohnzimmer_tuer
+      - cover.kinderzimmer
+      - cover.gaestezimmer
+      - cover.schlafzimmer
+raffstores_up_not_schlafzimmer:
+  sequence:
+  - service: cover.set_cover_position
+    data:
+      position: 0
+      entity_id:
+      - cover.wohnzimmer_fenster
+      - cover.wohnzimmer_tuer
+      - cover.kinderzimmer
+      - cover.gaestezimmer
+raffstores_up:
+  sequence:
+  - service: cover.set_cover_position
+    data:
+      position: 0
+      entity_id:
+      - cover.wohnzimmer_fenster
+      - cover.wohnzimmer_tuer
+      - cover.kinderzimmer
+      - cover.gaestezimmer
+      - cover.schlafzimmer
+raffstores_up_wohnzimmer_just_a_bit:
+  sequence:
+  - service: cover.set_cover_position
+    data:
+      position: 98
+      entity_id:
+      - cover.wohnzimmer_fenster
+      - cover.wohnzimmer_tuer
+licht_bei_bewegung_im_gang:
+  alias: Licht bei Bewegung im Gang
+  sequence:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.motion_gang
+      state: 'on'
+    - condition: template
+      value_template: "{% if ( states( 'sensor.eingang_luminance' ) | float) <\n \
+        \   ( states( 'input_number.gang_motion_brightness_lux_limit' ) | float )\
+        \ %}true\n    {% endif %}"
+    - condition: state
+      entity_id: switch.gang_zwave_switch
+      state: 'off'
+  - service: light.turn_on
+    data:
+      brightness_pct: '{{ states(''input_number.gang_motion_brightness'') | int }}'
+    entity_id: light.ganglicht
+  mode: single
