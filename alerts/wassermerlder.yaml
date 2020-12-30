@@ -1,36 +1,84 @@
-  wassermelder_bad_gross:
-    name: 'Wasser im großen Bad!'
-    message: 'Wasserschaden im großen Bad!'
-    done_message: 'Kein Wasserschaden mehr im großen Bad!'
-    entity_id:  binary_sensor.water_3
-    state: 'on'
-    repeat:
-      - 30
-      - 60
-      - 120
-    notifiers:
-      - ki_adi_mundi_group
-  wassermelder_bad_klein:
-    name: 'Wasser im kleinen Bad!'
-    message: 'Wasserschaden im kleinen Bad!'
-    done_message: 'Kein Wasserschaden mehr im kleinen Bad!'
-    entity_id:  binary_sensor.water_4
-    state: 'on'
-    repeat:
-      - 30
-      - 60
-      - 120
-    notifiers:
-      - ki_adi_mundi_group
-  wassermelder_kueche_links:
-    name: 'Wasser in der Küche links!'
-    message: 'Wasserschaden in der Küche links!'
-    done_message: 'Kein Wasserschaden mehr in der Küche links!'
-    entity_id:  binary_sensor.water_7
-    state: 'on'
-    repeat:
-      - 30
-      - 60
-      - 120
-    notifiers:
-      - ki_adi_mundi_group
+wassermelder_technikraum:
+  name: 'Wasser im Technikraum bei der Wärmepumpe!'
+  message: 'Wasser im Technikraum bei der Wärmepumpe!'
+  done_message: 'Kein Wasser mehr im Technikraum!'
+  entity_id: binary_sensor.water_1
+  state: 'on'
+  repeat:
+    - 30
+    - 60
+    - 120
+  notifiers:
+    - ki_adi_mundi_group
+wassermelder_kueche_1:
+  name: 'Wasser in der Küche rechts!'
+  message: 'Wasser in der Küche rechts!'
+  done_message: 'Kein Wasser mehr in der Küche rechts!'
+  entity_id: binary_sensor.water_2
+  state: 'on'
+  repeat:
+    - 30
+    - 60
+    - 120
+  notifiers:
+    - ki_adi_mundi_group
+wassermelder_bad_gross:
+  name: 'Wasser im großen Bad!'
+  message: 'Wasser im großen Bad!'
+  done_message: 'Kein Wasser mehr im großen Bad!'
+  entity_id: binary_sensor.water_3
+  state: 'on'
+  repeat:
+    - 30
+    - 60
+    - 120
+  notifiers:
+    - ki_adi_mundi_group
+wassermelder_bad_klein:
+  name: 'Wasser im kleinen Bad!'
+  message: 'Wasser im kleinen Bad!'
+  done_message: 'Kein Wasser mehr im kleinen Bad!'
+  entity_id: binary_sensor.water_4
+  state: 'on'
+  repeat:
+    - 30
+    - 60
+    - 120
+  notifiers:
+    - ki_adi_mundi_group
+wassermelder_waschmaschine:
+  name: 'Wasser bei der Waschmaschine!'
+  message: 'Wasser bei der Waschmaschine!'
+  done_message: 'Kein Wasser mehr bei der Waschmaschine!'
+  entity_id: binary_sensor.water_5
+  state: 'on'
+  repeat:
+    - 30
+    - 60
+    - 120
+  notifiers:
+    - ki_adi_mundi_group
+wassermelder_trockner:
+  name: 'Wasser bei der Trockner!'
+  message: 'Wasser bei der Trockner!'
+  done_message: 'Kein Wasser mehr bei der Trockner!'
+  entity_id: binary_sensor.water_6
+  state: 'on'
+  repeat:
+    - 30
+    - 60
+    - 120
+  notifiers:
+    - ki_adi_mundi_group
+wassermelder_kueche_links:
+  name: 'Wasser in der Küche links!'
+  message: 'Wasser in der Küche links!'
+  done_message: 'Kein Wasser mehr in der Küche links!'
+  entity_id: binary_sensor.water_7
+  state: 'on'
+  repeat:
+    - 30
+    - 60
+    - 120
+  notifiers:
+    - ki_adi_mundi_group
