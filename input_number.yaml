@@ -1,12 +1,10 @@
 gang_motion_brightness:
   name: Licht Helligkeit
-  initial: 10
   min: 5
   max: 100
   step: 1
 gang_motion_brightness_lux_limit:
   name: Lux Limit
-  initial: 100
   min: 10
   max: 1500
   step: 10
