@@ -22,11 +22,7 @@ automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
 alert: !include_dir_merge_named alerts/
 
-calendar:
-  - platform: caldav
-    username: !secret nextcloud_calendar_user
-    password: !secret nextcloud_calendar_password
-    url: !secret nextcloud_caldav_url
+calendar: !include calendar.yaml
 
 sensor: !include sensors.yaml
 light: !include light.yaml
@@ -34,6 +30,10 @@ input_datetime: !include input_datetime.yaml
 input_boolean: !include input_boolean.yaml
 input_number: !include input_number.yaml
 rest_command: !include rest_command.yaml
+
+neato:
+  client_id: !secret neato_client_id
+  client_secret: !secret neato_client_secret
 
 zwave:
   usb_path: /dev/ttyACM0
