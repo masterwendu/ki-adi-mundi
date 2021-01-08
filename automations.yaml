@@ -188,3 +188,21 @@
     entity_id: switch.gang_helper_garderobe
     domain: switch
   mode: restart
+- id: '1610102746283'
+  alias: Wendelin Contacts Birthday notification
+  description: When someone in Wendelin's contact list has birthday, he will get a
+    notification on his Phone
+  trigger:
+  - platform: time
+    at: 08:00:00
+  condition:
+  - condition: state
+    entity_id: calendar.geburtstage_von_kontakten_geburtstage_von_kontakten
+    state: 'on'
+  action:
+  - device_id: e8a0fff1e51d4db39c2f927ed4714e4a
+    domain: mobile_app
+    type: notify
+    message: Heute hat {{state_attr('calendar.geburtstage_von_kontakten_geburtstage_von_kontakten',
+      'message')}} Geburtstag!
+  mode: single

@@ -1,0 +1,12 @@
+- platform: caldav
+  username: !secret nextcloud_calendar_user
+  password: !secret nextcloud_calendar_password
+  url: !secret nextcloud_caldav_url
+- platform: caldav
+  username: !secret nextcloud_wendelin_user
+  password: !secret nextcloud_wendelin_password
+  url: !secret nextcloud_caldav_wendelin_url
+  custom_calendars:
+    - name: Geburtstage von Kontakten
+      calendar: Geburtstage von Kontakten
+      search: '.'
