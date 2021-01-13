@@ -206,3 +206,72 @@
     message: Heute hat {{state_attr('calendar.geburtstage_von_kontakten_geburtstage_von_kontakten',
       'message')}} Geburtstag!
   mode: single
+- id: '1610525165311'
+  alias: Wohnzimmer/alles aus
+  description: Schalte alle Lichter, TV und Radio aus
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      node_id: 33
+      scene_id: 5
+      scene_data: 1
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 2a5b5b88d65b428c85b7597d357d7c6a
+    entity_id: light.dimmer_wohnzimmer_stimmung_sued
+    domain: light
+  - type: turn_off
+    device_id: d32da0ab5914450a8f1e1a9487268c4d
+    entity_id: light.dimmer_livingroom_north
+    domain: light
+  - type: turn_off
+    device_id: 3d6afca610d34d78846b5205fea7e1ae
+    entity_id: light.dimmer_wohnzimmer_esstisch
+    domain: light
+  - type: turn_off
+    device_id: 283cdaabe072493b8a6125152258a4dc
+    entity_id: light.dimmer_wohnzimmer_oben
+    domain: light
+  - type: turn_off
+    device_id: ced6383d707f4294a3f87837588fdd56
+    entity_id: switch.xiaomi_smart_plug
+    domain: switch
+  - type: turn_off
+    device_id: 7e80a38626974f36a1ab519b8274f1e5
+    entity_id: switch.wohnzimmer_wandleuchten_switch
+    domain: switch
+  - type: turn_off
+    device_id: 433f2fb0899148ddba6b62e6679e0d6e
+    entity_id: switch.licht_kueche_abwasch
+    domain: switch
+  - type: turn_off
+    device_id: c3df2de9003a4249860591c092f674e0
+    entity_id: switch.licht_kueche_insel
+    domain: switch
+  - type: turn_off
+    device_id: 0fb517c7a954457d9abf2d15d52c1fd1
+    entity_id: switch.licht_kueche_mitte
+    domain: switch
+  - type: turn_off
+    device_id: 7f41067d9d2b403a9264ce2f529d4cbf
+    entity_id: switch.licht_speis
+    domain: switch
+  - condition: device
+    type: is_on
+    device_id: 8e7f9862ce3b4baa8bc87b485471e4f0
+    entity_id: switch.steckdose_fernseher
+    domain: switch
+  - type: turn_off
+    device_id: 8e7f9862ce3b4baa8bc87b485471e4f0
+    entity_id: switch.steckdose_fernseher
+    domain: switch
+  - service: remote.send_command
+    data: {}
+    entity_id: remote.broadlink_rm_mini_remote
+  - delay: 00:00:01
+  - service: remote.send_command
+    data: {}
+    entity_id: remote.broadlink_rm_mini_remote
+  mode: single
