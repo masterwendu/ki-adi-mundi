@@ -258,6 +258,8 @@
     device_id: 7f41067d9d2b403a9264ce2f529d4cbf
     entity_id: switch.licht_speis
     domain: switch
+  - service: rest_command.phoniebox_stop
+    data: {}
   - condition: device
     type: is_on
     device_id: 8e7f9862ce3b4baa8bc87b485471e4f0
@@ -268,10 +270,14 @@
     entity_id: switch.steckdose_fernseher
     domain: switch
   - service: remote.send_command
-    data: {}
-    entity_id: remote.broadlink_rm_mini_remote
+    data:
+      entity_id: remote.broadlink_rm_mini_remote
+      command:
+        - !secret hdmi_switcher_power
+        - !secret simpli_tv_on_off
   - delay: 00:00:01
   - service: remote.send_command
-    data: {}
-    entity_id: remote.broadlink_rm_mini_remote
+    data:
+      entity_id: remote.broadlink_rm_mini_remote
+      command: !secret hdmi_switcher_1
   mode: single
