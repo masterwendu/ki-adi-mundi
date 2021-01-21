@@ -3,6 +3,12 @@
   allowed_chat_ids:
     - !secret telegram_chat_tor_channel
     - !secret telegram_chat_ki_adi_mundi_group
+    - !secret telegram_chat_tor_guest_group
     - !secret telegram_chat_caroline_id
     - !secret telegram_chat_wendelin_id
-    - !secret telegram_chat_tor_guest_group
+    - !secret telegram_chat_thomas_kadi_id
+    - !secret telegram_chat_geli_id
+    - !secret telegram_chat_konsi_id
+    - !secret telegram_chat_mama_id
+    - !secret telegram_chat_papa_id
+    - !secret telegram_chat_thomas_hoffmann_id
