@@ -8,3 +8,6 @@
             or is_state('binary_sensor.xiaomi_motion_2', 'on')
             or is_state('binary_sensor.xiaomi_motion_3', 'on')
             or is_state('binary_sensor.xiaomi_motion_4', 'on') }}
+- platform: ping
+  host: !secret home_server_ip
+  name: home server ping
