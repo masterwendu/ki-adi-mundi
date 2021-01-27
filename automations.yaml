@@ -69,7 +69,7 @@
     default: []
   mode: single
 - id: '1608990055556'
-  alias: Ganglicht
+  alias: Gang/Licht
   description: Ganglicht an/aus je nachdem ob Bewegung oder der Schalter betätigt
     wurde
   trigger:
@@ -122,7 +122,7 @@
         entity_id: light.ganglicht
   mode: restart
 - id: '1608990595838'
-  alias: Ganglicht mit Bewegung trigger
+  alias: Gang/Ganglicht mit Bewegung toogle
   description: Schaltet die Ganglicht Bewegungsmelder an/aus
   trigger:
   - platform: time
@@ -138,6 +138,8 @@
       node_id: 33
       scene_id: 4
       scene_data: 1
+  - platform: time
+    at: '12:00:00'
   condition: []
   action:
   - choose:
@@ -149,14 +151,22 @@
       - service: input_boolean.turn_on
         data: {}
         entity_id: input_boolean.gang_licht_bewegungsmelder
+    - conditions:
+      - condition: time
+        after: '12:00:00'
+        before: '12:01:00'
+      sequence:
+      - service: input_boolean.turn_on
+        data: {}
+        entity_id: input_boolean.gang_licht_bewegungsmelder
     default:
     - service: input_boolean.toggle
       data: {}
       entity_id: input_boolean.gang_licht_bewegungsmelder
   mode: restart
 - id: '1608990846676'
-  alias: Ganglicht von externen Tastern
-  description: Ganglicht zu 100% ein von externen Tastern im Gang
+  alias: Gang/Licht 100% schalten
+  description: Ganglicht zu 100% ein, von externen Tastern im Gang
   trigger:
   - platform: device
     type: turned_on
@@ -273,11 +283,27 @@
     data:
       entity_id: remote.broadlink_rm_mini_remote
       command:
-        - !secret hdmi_switcher_power
-        - !secret simpli_tv_on_off
+      - b64:JgBYAAABL5QTExMSEhMTExMSExIUEhMSEzgTNxM3EzcUNxM3EzcTNxQ3EzcTNxQ3EzcTEhMTExITEhMSExIUEhITEzcTOBM3EwAFFgABK0oTAAxUAAEsShMADQU=
+      - b64:JgBQAAABJpMTNhI4ETgSExI3ETkSNxITEhMTExEUEjcSFBEVEjcTExE4EjcTEhIUERQTNhITEhQRFBITEzcROBM2EhMSOBE4EgAFIAABJkoSAA0FAAAAAAAAAAA=
   - delay: 00:00:01
   - service: remote.send_command
     data:
       entity_id: remote.broadlink_rm_mini_remote
-      command: !secret hdmi_switcher_1
+      command: b64:JgBIAAABKZMUEhMSFBEUERQRExITExITEzcTNxQ2FDcTNxM3FDYUNxM3FDYTEhM3EjkUERMSExIUERMSEzgUERQREzcUNhQ3EwANBQ==
+  mode: single
+- id: '1611687650649'
+  alias: Arbeitszimmer/Server down Warnung
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.home_server_ping
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - device_id: e8a0fff1e51d4db39c2f927ed4714e4a
+    domain: mobile_app
+    type: notify
+    message: Achtung Server down!
+    title: ''
   mode: single
