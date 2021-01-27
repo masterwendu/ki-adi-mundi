@@ -50,3 +50,10 @@ zwave:
     cover.wohnzimmer_fenster:
       invert_percent: true
       invert_openclose_buttons: true
+
+camera:
+  - platform: mjpeg
+    still_image_url: !secret camera_snapshot_url
+    mjpeg_url: !secret camera_video_url
+    verify_ssl: false
+    name: Fahrradkamera
