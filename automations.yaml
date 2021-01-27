@@ -307,3 +307,110 @@
     message: Achtung Server down!
     title: ''
   mode: single
+- id: '1611764960229'
+  alias: Bad groß/Zahnbürsten laden
+  description: Lade die Zahnbürsten für den Morgen bzw Abend
+  trigger:
+  - platform: time
+    at: 04:00:00
+  - platform: time
+    at: 06:00:00
+  - platform: time
+    at: '20:00:00'
+  - platform: time
+    at: '22:00:00'
+  condition: []
+  action:
+  - type: toggle
+    device_id: ff3fc1e3a22b42de96ca158a871a6817
+    entity_id: switch.zahnburstensteckdose_bad_gros
+    domain: switch
+  mode: single
+- id: '1611765299361'
+  alias: Außen/Terrasse Süd/Außenlicht ein, bei Bewegung
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: 1990a37adb084cffad7dd461d9930bab
+    entity_id: binary_sensor.motion_eingang
+    domain: binary_sensor
+  condition:
+  - type: is_illuminance
+    condition: device
+    device_id: 1990a37adb084cffad7dd461d9930bab
+    entity_id: sensor.eingang_luminance
+    domain: sensor
+    below: 100
+  action:
+  - type: turn_on
+    device_id: d005cc84478c4c0dac9c6db7c524d71e
+    entity_id: switch.licht_aussen_eingang
+    domain: switch
+  mode: single
+- id: '1611765375549'
+  alias: Außen/Terrasse Süd/Außenlicht aus, keine Bewegung
+  description: ''
+  trigger:
+  - type: no_motion
+    platform: device
+    device_id: 1990a37adb084cffad7dd461d9930bab
+    entity_id: binary_sensor.motion_eingang
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+  - platform: device
+    type: turned_on
+    device_id: d005cc84478c4c0dac9c6db7c524d71e
+    entity_id: switch.licht_aussen_eingang
+    domain: switch
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+  condition:
+  - type: is_no_motion
+    condition: device
+    device_id: 1990a37adb084cffad7dd461d9930bab
+    entity_id: binary_sensor.motion_eingang
+    domain: binary_sensor
+  action:
+  - type: turn_off
+    device_id: d005cc84478c4c0dac9c6db7c524d71e
+    entity_id: switch.licht_aussen_eingang
+    domain: switch
+  mode: single
+- id: '1611765593882'
+  alias: Außen/Tor öffnen
+  description: ''
+  trigger:
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: open_tor
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: /open
+      chat_id: -1001375665631
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: /open
+      chat_id: -1001245826397
+  condition: []
+  action:
+  - type: turn_on
+    device_id: f892e73efa2c4b1285d425d0036bd7a7
+    entity_id: switch.open_door_switch
+    domain: switch
+  - condition: template
+    value_template: '{{ trigger.event.data.command ==  ''/open'' }}'
+  - service: telegram_bot.answer_callback_query
+    data:
+      callback_query_id: '{{ trigger.event.data.id }}'
+      message: Tor wird für 3 Sekunden geöffnet
+      show_alert: true
+  mode: single
