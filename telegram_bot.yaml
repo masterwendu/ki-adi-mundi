@@ -12,3 +12,4 @@
     - !secret telegram_chat_mama_id
     - !secret telegram_chat_papa_id
     - !secret telegram_chat_thomas_hoffmann_id
+    - !secret telegram_chat_andi_maurer_id
