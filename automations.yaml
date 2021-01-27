@@ -394,12 +394,12 @@
     event_type: telegram_callback
     event_data:
       command: /open
-      chat_id: -1001375665631
+      chat_id: !secret telegram_chat_tor_guest_group
   - platform: event
     event_type: telegram_callback
     event_data:
       command: /open
-      chat_id: -1001245826397
+      chat_id: !secret telegram_chat_tor_channel
   condition: []
   action:
   - type: turn_on
