@@ -403,8 +403,8 @@
   condition: []
   action:
   - type: turn_on
-    device_id: f892e73efa2c4b1285d425d0036bd7a7
-    entity_id: switch.open_door_switch
+    device_id: de6885e8f59f3d42ba75d544cd4bcaad
+    entity_id: switch.tor_offnen
     domain: switch
   - condition: template
     value_template: '{{ trigger.event.data.command ==  ''/open'' }}'
@@ -413,4 +413,23 @@
       callback_query_id: '{{ trigger.event.data.id }}'
       message: Tor wird für 3 Sekunden geöffnet
       show_alert: true
+  mode: single
+- id: '1613245264310'
+  alias: Außen/Tür-Klingel
+  description: Benachrichtigung senden wenn die Türklingel gedrückt wurde
+  trigger:
+  - type: turned_on
+    platform: device
+    device_id: de6885e8f59f3d42ba75d544cd4bcaad
+    entity_id: binary_sensor.aussen_torklingel_button
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: telegram_bot.send_message
+    data:
+      target: !secret telegram_chat_tor_channel
+      message: 🔔 Ring - Torklingel
+      inline_keyboard:
+      - - - Tor öffnen
+          - /open
   mode: single

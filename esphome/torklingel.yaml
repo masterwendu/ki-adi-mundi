@@ -1,0 +1,49 @@
+esphome:
+  name: aussen_torklingel
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Aussen Torklingel"
+    password: "kwURaqiNU83n"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+# Device Specific Config
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: shelly_1_relay
+    
+switch:
+  - platform: output
+    name: "Tor öffnen"
+    output: 'shelly_1_relay'
+    id: tor_switch
+    on_turn_on:
+      then:
+        - delay: 3s
+        - switch.turn_off: tor_switch
+                                       
+binary_sensor:                         
+  - platform: gpio
+    id: aussen_torklingel_button
+    name: aussen_torklingel_button
+    pin:                               
+      number: GPIO5           
+    on_press:
+      - homeassistant.event:
+          event: esphome.aussen_torklingel_pressed
