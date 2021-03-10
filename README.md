@@ -1,3 +1,5 @@
+**This repository changed to https://git.wendelin.dev/wendelin/ki-adi-mundi**
+
 # ki-adi-mundi <img src="https://github.com/masterwendu/ki-adi-mundi/blob/master/docs/ki-adi-mundi.jpg?raw=true" height="100" alt="Ki-Adi-Mundi" />
 Installation of a https://home-assistant.io/ instance, called after the Jedi Ki-Adi-Mundi because the homeassistant is the brain of the house and Ki-Adi-Mundi has 2 brains.
 
